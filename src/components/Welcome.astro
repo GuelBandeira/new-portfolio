@@ -1,0 +1,113 @@
+---
+import astroLogo from "../assets/astro.svg";
+import background from "../assets/background.svg";
+---
+
+<div
+  id="blob"
+  class="fixed left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full opacity-80 animate-spin-slow bg-gradient-to-r from-aquamarine to-mediumpurple w-[34vmax] aspect-square z-0"
+>
+</div>
+<div id="blur" class="fixed inset-0 z-20 backdrop-blur-3xl"></div>
+<h1
+  data-value="MOUSEMOVE"
+  class="font-mono text-white whitespace-nowrap px-[clamp(1rem,2vw,3rem)] rounded-[clamp(0.4rem,0.75vw,1rem)] m-0 fixed left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-30 text-[clamp(3rem,10vw,10rem)]"
+  tabindex="0"
+  aria-label="MOUSEMOVE"
+>
+  MOUSEMOVE
+</h1>
+
+<div id="links">
+  <div class="meta-link">
+    <span class="label">Glow Effect</span>
+    <span class="dot">·</span>
+    <a class="source" href="https://www.poppr.be" target="_blank">
+      <i class="fa-solid fa-link"></i>
+    </a>
+    <span class="dot">·</span>
+    <a class="youtube" href="https://youtu.be/kySGqoU7X-s" target="_blank">
+      <i class="fa-brands fa-youtube"></i>
+    </a>
+  </div>
+
+  <div class="meta-link">
+    <span class="label">Text Effect</span>
+    <span class="dot">·</span>
+    <a class="source" href="https://kprverse.com" target="_blank">
+      <i class="fa-solid fa-link"></i>
+    </a>
+    <span class="dot">·</span>
+    <a class="youtube" href="https://youtu.be/W5oawMJaXbU" target="_blank">
+      <i class="fa-brands fa-youtube"></i>
+    </a>
+  </div>
+</div>
+
+<script type="module" src="/src/scripts/welcomeEffects.js"></script>
+
+<style>
+  body {
+    background-color: black;
+    height: 100vh;
+    margin: 0rem;
+    overflow: hidden;
+  }
+
+  @keyframes rotate {
+    from {
+      rotate: 0deg;
+    }
+    50% {
+      scale: 1 1.5;
+    }
+    to {
+      rotate: 360deg;
+    }
+  }
+
+  /* -- Links -- */
+  #links {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    z-index: 10;
+    padding: 1rem;
+  }
+  .meta-link {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  .meta-link > :is(span, a) {
+    font-family: "Rubik", sans-serif;
+    color: white;
+  }
+  .meta-link > .label {
+    width: 100px;
+    text-align: right;
+  }
+  .meta-link > a {
+    text-decoration: none;
+    outline: none;
+  }
+  .meta-link > a.source {
+    color: rgb(94, 106, 210);
+  }
+  .meta-link > a:is(:hover, :focus) > i {
+    color: white;
+  }
+  .meta-link > a.youtube {
+    color: rgb(239, 83, 80);
+  }
+  .meta-link > a.youtube > i {
+    padding-top: 0.2rem;
+  }
+  .meta-link > a > i {
+    height: 1rem;
+    line-height: 1rem;
+  }
+</style>
