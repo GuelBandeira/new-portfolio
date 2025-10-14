@@ -1026,14 +1026,12 @@ https://cdn.jsdelivr.net/npm/typeface-poppins@1.1.13/index.min.css
   }
 </style>
 
-<script>
+<script is:inline>
   // Parallax effect for hero section
   window.addEventListener("scroll", () => {
     const scrolled = window.pageYOffset;
-    const parallax = document.querySelector(".parallax-section") as HTMLElement;
-    const sideProjects = document.querySelector(
-      ".side-projects-section"
-    ) as HTMLElement;
+    const parallax = document.querySelector(".parallax-section");
+    const sideProjects = document.querySelector(".side-projects-section");
     const speed = scrolled * 0.5;
 
     if (parallax) {

@@ -2346,7 +2346,9 @@ https://cdn.jsdelivr.net/npm/typeface-poppins@1.1.13/index.min.css
 
     if (isMobile) {
       // Disable parallax and blur effects on mobile
-      const parallax = document.querySelector(".parallax-section");
+      const parallax = document.querySelector(
+        ".parallax-section"
+      );
       if (parallax) {
         parallax.style.filter = "blur(0px)";
       }
@@ -2402,8 +2404,12 @@ https://cdn.jsdelivr.net/npm/typeface-poppins@1.1.13/index.min.css
 
   // Hide social toolbar when contact content is visible
   function toggleSocialToolbar() {
-    const socialToolbar = document.querySelector(".social-toolbar");
-    const contactContent = document.querySelector(".contact-content");
+    const socialToolbar = document.querySelector(
+      ".social-toolbar"
+    );
+    const contactContent = document.querySelector(
+      ".contact-content"
+    );
 
     if (socialToolbar && contactContent) {
       const contactRect = contactContent.getBoundingClientRect();
@@ -2455,8 +2461,12 @@ https://cdn.jsdelivr.net/npm/typeface-poppins@1.1.13/index.min.css
 
   const timelineLine = document.querySelector(".timeline-line");
   const timelineItems = document.querySelectorAll(".timeline-item");
-  const myJourneySectionElement = document.querySelector(".journey-timeline");
-  const journeyTimelineElement = document.querySelector(".journey-timeline");
+  const myJourneySectionElement = document.querySelector(
+    ".journey-timeline"
+  );
+  const journeyTimelineElement = document.querySelector(
+    ".journey-timeline"
+  );
 
   // Controle para animação mobile
   let mobileItemsAnimated = false;
@@ -2592,10 +2602,10 @@ https://cdn.jsdelivr.net/npm/typeface-poppins@1.1.13/index.min.css
   }, 3000);
 
   // Permitir que o blob siga o mouse mesmo quando parado e também ao usar o scroll
-  let blobAnimationFrame = null;
-  let lastPointer = null;
+  let blobAnimationFrame: number | null = null;
+  let lastPointer: { x: number; y: number } | null = null;
 
-  function updateBlobPosition(x, y) {
+  function updateBlobPosition(x: number, y: number) {
     if (!blob || !myJourneySection) return;
 
     const rect = myJourneySection.getBoundingClientRect();
@@ -2606,7 +2616,7 @@ https://cdn.jsdelivr.net/npm/typeface-poppins@1.1.13/index.min.css
     blob.style.top = `${relativeY}px`;
   }
 
-  function scheduleBlobUpdate(x, y) {
+  function scheduleBlobUpdate(x: number, y: number) {
     if (blobAnimationFrame !== null) {
       cancelAnimationFrame(blobAnimationFrame);
     }
