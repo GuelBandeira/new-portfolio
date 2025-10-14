@@ -1,113 +1,2665 @@
 ---
-import astroLogo from "../assets/astro.svg";
-import background from "../assets/background.svg";
+import profileImage from "../assets/proifle.jpg";
+import alreadyWatched from "../assets/img/already_watched.png";
+import myNftCar from "../assets/img/my_nft_car.png";
+import lccAmbiental from "../assets/img/lcc_ambiental.png";
+import etpcEsports from "../assets/img/etpc_esports.png";
+import ProjectCard from "./ProjectCard.astro";
+import JourneyCard from "./JourneyCard.astro";
 ---
 
-<div
-  id="blob"
-  class="fixed left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full opacity-80 animate-spin-slow bg-gradient-to-r from-aquamarine to-mediumpurple w-[34vmax] aspect-square z-0"
->
+<link
+  href="
+https://cdn.jsdelivr.net/npm/typeface-poppins@1.1.13/index.min.css
+"
+  rel="stylesheet"
+/>
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+/>
+
+<div class="social-toolbar">
+  <ul class="social-icons">
+    <li>
+      <a href="https://github.com" target="_blank" rel="noopener noreferrer">
+        <i class="icon fab fa-github"></i>
+      </a>
+    </li>
+    <li>
+      <a href="https://t.me" target="_blank" rel="noopener noreferrer">
+        <i class="icon fab fa-telegram"></i>
+      </a>
+    </li>
+    <li>
+      <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer">
+        <i class="icon fab fa-linkedin"></i>
+      </a>
+    </li>
+    <li>
+      <a href="mailto:contact@example.com">
+        <i class="icon fas fa-envelope"></i>
+      </a>
+    </li>
+    <li>
+      <a href="https://wa.me" target="_blank" rel="noopener noreferrer">
+        <i class="icon fab fa-whatsapp"></i>
+      </a>
+    </li>
+  </ul>
 </div>
-<div id="blur" class="fixed inset-0 z-20 backdrop-blur-3xl"></div>
-<h1
-  data-value="MOUSEMOVE"
-  class="font-mono text-white whitespace-nowrap px-[clamp(1rem,2vw,3rem)] rounded-[clamp(0.4rem,0.75vw,1rem)] m-0 fixed left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-30 text-[clamp(3rem,10vw,10rem)]"
-  tabindex="0"
-  aria-label="MOUSEMOVE"
->
-  MOUSEMOVE
-</h1>
 
-<div id="links">
-  <div class="meta-link">
-    <span class="label">Glow Effect</span>
-    <span class="dot">·</span>
-    <a class="source" href="https://www.poppr.be" target="_blank">
-      <i class="fa-solid fa-link"></i>
-    </a>
-    <span class="dot">·</span>
-    <a class="youtube" href="https://youtu.be/kySGqoU7X-s" target="_blank">
-      <i class="fa-brands fa-youtube"></i>
-    </a>
+<section class="hero-section parallax-section">
+  <!-- Background Video -->
+  <video class="background-video" autoplay muted loop playsinline>
+    <source src="/test.mp4" type="video/mp4" />
+  </video>
+
+  <!-- Overlay for better text readability -->
+  <div class="overlay"></div>
+
+  <!-- Content Container -->
+  <div class="hero-content">
+    <div class="hero-text">
+      <h1 class="hero-title">
+        <span class="hero-greeting handwritten">Hello I am</span>
+        Guel Bandeira
+      </h1>
+      <p class="hero-description">
+        A passionate Full Stack Developer with over 4 years of experience in
+        Laravel and PHP
+      </p>
+      <!-- INSERT_YOUR_CODE -->
+      <div class="tech-logos-row">
+        <span class="tech-logo">
+          <i class="fab fa-php"></i>
+          <span>PHP</span>
+        </span>
+        <span class="tech-logo">
+          <i class="fab fa-css3-alt"></i>
+          <span>Tailwind CSS</span>
+        </span>
+        <span class="tech-logo">
+          <i class="fas fa-fire"></i>
+          <span>Laravel</span>
+        </span>
+        <span class="tech-logo">
+          <i class="fas fa-database"></i>
+          <span>MySQL</span>
+        </span>
+        <span class="tech-logo">
+          <i class="fab fa-js-square"></i>
+          <span>JavaScript</span>
+        </span>
+        <span class="tech-logo">
+          <i class="fab fa-react"></i>
+          <span>React</span>
+        </span>
+        <span class="tech-logo">
+          <i class="fab fa-git-alt"></i>
+          <span>Git</span>
+        </span>
+        <span class="tech-logo">
+          <i class="fas fa-bolt"></i>
+          <span>Livewire</span>
+        </span>
+        <span class="tech-logo">
+          <i class="fas fa-database"></i>
+          <span>PostgreSQL</span>
+        </span>
+        <span class="tech-logo">
+          <i class="fas fa-leaf"></i>
+          <span>MongoDB</span>
+        </span>
+      </div>
+
+      <div class="hero-buttons">
+        <button class="btn btn-primary" onclick="scrollToSection('contact')"
+          >Contact Me</button
+        >
+        <button class="btn btn-secondary" onclick="scrollToSection('projects')"
+          >View Projects</button
+        >
+      </div>
+    </div>
+
+    <div class="hero-image">
+      <img src={profileImage.src} alt="Profile Photo" class="profile-photo" />
+
+      <!-- Circular Technology Lines -->
+      <!-- <div class="tech-orbit">
+        <div class="tech-line" style="--angle: 0deg">
+          <div class="tech-logo">
+            <i class="icon fab fa-php"></i>
+            <span>PHP</span>
+          </div>
+        </div>
+        <div class="tech-line" style="--angle: 51.4deg">
+          <div class="tech-logo">
+            <i class="icon fab fa-css3-alt"></i>
+            <span>Tailwind</span>
+          </div>
+        </div>
+        <div class="tech-line" style="--angle: 102.8deg">
+          <div class="tech-logo">
+            <i class="icon fas fa-fire"></i>
+            <span>Laravel</span>
+          </div>
+        </div>
+        <div class="tech-line" style="--angle: 154.2deg">
+          <div class="tech-logo">
+            <i class="icon fas fa-database"></i>
+            <span>SQL</span>
+          </div>
+        </div>
+        <div class="tech-line" style="--angle: 205.6deg">
+          <div class="tech-logo">
+            <i class="icon fab fa-js-square"></i>
+            <span>JavaScript</span>
+          </div>
+        </div>
+        <div class="tech-line" style="--angle: 257deg">
+          <div class="tech-logo">
+            <i class="icon fab fa-react"></i>
+            <span>React</span>
+          </div>
+        </div>
+        <div class="tech-line" style="--angle: 308.4deg">
+          <div class="tech-logo">
+            <i class="icon fab fa-bootstrap"></i>
+            <span>Bootstrap</span>
+          </div>
+        </div>
+      </div> -->
+    </div>
   </div>
+</section>
 
-  <div class="meta-link">
-    <span class="label">Text Effect</span>
-    <span class="dot">·</span>
-    <a class="source" href="https://kprverse.com" target="_blank">
-      <i class="fa-solid fa-link"></i>
-    </a>
-    <span class="dot">·</span>
-    <a class="youtube" href="https://youtu.be/W5oawMJaXbU" target="_blank">
-      <i class="fa-brands fa-youtube"></i>
-    </a>
+<!-- My Journey Section -->
+<section id="projects" class="my-journey-section">
+  <div id="blob"></div>
+  <div id="blur"></div>
+  <svg
+    class="v-transition-svg"
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 1440 320"
+  >
+    <path
+      d="M0,128L720,288L1440,128L1440,0L720,0L0,0Z"
+      fill="#010c23"
+      fill-opacity="1"></path>
+  </svg>
+
+  <div class="container">
+    <div class="section-header">
+      <h2 class="section-title">My Journey</h2>
+      <p class="section-subtitle">
+        "The only way to do great work is to love what you do" <br />
+        <i>- Steve Jobs</i>
+      </p>
+    </div>
+
+    <div class="journey-timeline">
+      <div class="timeline-line"></div>
+
+      <JourneyCard
+        jobTitle="Full Stack Developer"
+        jobPeriod="2022 - Presente"
+        companyName="CTA Tecnologia Avançada - Software for City Halls"
+        responsibilities={[
+          "<b>Back-End Development</b>: Write PHP code to build the business logic of the system. Manage data security and implement access controls",
+          "<b>Database Management</b>: Design the database schema. Define relationships between tables to ensure data integrity",
+          "<b>Front-End Development</b>: Create user-friendly and accessible interfaces (UI) for city hall employees and citizens. Use HTML, CSS, and JavaScript to develop the user interface",
+          "<b>Systems Integration</b>: Integrate with third-party systems such as postal services, the court of justice, and notary offices",
+          "<b>System Maintenance</b>: Update and enhance existing systems to ensure improvements and security",
+        ]}
+        position="left"
+      />
+
+      <JourneyCard
+        jobTitle="Full Stack Developer Jr."
+        companyName="Singular - Digital Marketing Agency"
+        jobPeriod="2021 - 2022"
+        responsibilities={[
+          "Development of custom web applications focused on client satisfaction - including advertising landing pages, management and control systems, and web3-oriented pages",
+          "<b>Back-End Development</b>: Build robust APIs with Laravel and PHP for marketing platforms and client management systems",
+          "<b>Database Management</b>: Design and create databases using MySQL for clients product",
+          "<b>Systems Integration</b>: Integrate with third-party marketing tools and analytics platforms",
+          "<b>Continuous Maintenance</b>: Changes and adding new features by the request of the client, updates, fixes, and improvements",
+        ]}
+        position="right"
+      />
+
+      <JourneyCard
+        jobTitle="Full Stack Developer Jr."
+        companyName="DEC 9 - Digital Marketing Agency"
+        jobPeriod="2020 - 2021"
+        responsibilities={[
+          "User Interface Design: Creation of attractive and functional layouts for websites using HTML5, CSS3, and JavaScript",
+          "Front-End Development: Build responsive interfaces and reusable components for marketing campaigns and client websites",
+          "Website Performance Optimization: Enhance loading speed and overall efficiency to deliver a better user experience",
+          "SEO and Accessibility: Implement best practices for search engine optimization and ensure websites are accessible to all users",
+        ]}
+        position="left"
+      />
+
+      <JourneyCard
+        jobTitle="Intern Software Developer"
+        companyName="CSN - National Steel Company"
+        jobPeriod="2019 - 2020"
+        responsibilities={[
+          "Technical Support: Resolve system issues and support tickets for existing web applications",
+          "Bug Fixes: Identify and fix errors in the current system under senior developer supervision",
+          "Learning and Development: Study modern frameworks and technologies to support team development efforts",
+          "Code Reviews: Participate in code review sessions to learn best practices and improve code quality",
+          "Documentation: Assist in creating technical documentation and user guides for system features",
+          "Testing Support: Help with unit testing and quality assurance processes for web applications",
+        ]}
+        position="right"
+      />
+    </div>
+    <div class="section-header">
+      <h2 class="section-title">Side Projects</h2>
+      <p class="section-subtitle"></p>
+    </div>
+
+    <div class="projects-grid">
+      <ProjectCard
+        title="Already Watched"
+        description="The letterboxd competitor. A complete movie listing platform and database with a rating system, reviews, statstistics, friends list, categorization, and a modern interface. Designed to deliver a premium experience for discovering and tracking audiovisual content."
+        technologies={["PHP", "CSS", "MySQL", "JavaScript"]}
+        image={alreadyWatched.src}
+        imageAlt="Already Watched Platform"
+        link="https://alreadywatched.com.br"
+      />
+
+      <ProjectCard
+        title="ETPC E-SPORTS"
+        description="The ETPC E-SPORTS website is part of the initiative of the same name, created by me with the goal of bringing the world of electronic sports to Pandiá Calógeras Technical School. We partnered with the CSN Foundation for promotion and built the website entirely from scratch. "
+        technologies={["PHP", "Tailwind CSS", "PostgreSQL", "JavaScript"]}
+        image={etpcEsports.src}
+        imageAlt="ETPC E-SPORTS"
+        link="https://etpc.com.br"
+      />
+
+      <ProjectCard
+        title="MY NFT CAR"
+        description="Landing page created for the launch of a platform that allows transforming real vehicles into unique NFTs."
+        technologies={["HTML5", "CSS", "JavaScript"]}
+        image={myNftCar.src}
+        imageAlt="MY NFT CAR Platform"
+        link="https://landing-page-nft-six.vercel.app/"
+      />
+
+      <ProjectCard
+        title="LC Consultoria"
+        description="Institutional website for an environmental consulting company. Developed with a focus on presenting environmental licensing, fauna and flora studies, forest restoration, and environmental education in a professional and accessible manner."
+        technologies={["HTML5", "CSS", "JavaScript"]}
+        image={lccAmbiental.src}
+        imageAlt="LC Consultoria Ambiental"
+        link="https://lcconsultoria.vercel.app/"
+      />
+    </div>
   </div>
-</div>
+</section>
 
-<script type="module" src="/src/scripts/welcomeEffects.js"></script>
+<!-- Contact Section -->
+<section id="contact" class="contact-section parallax-section">
+  <!-- Background Video -->
+  <video class="background-video" autoplay muted loop playsinline>
+    <source src="/test.mp4" type="video/mp4" />
+  </video>
 
-<style>
+  <!-- Overlay for better text readability -->
+  <div class="overlay"></div>
+
+  <!-- Content Container -->
+  <div class="contact-content">
+    <div class="contact-text">
+      <h2 class="contact-title">Let's Connect</h2>
+      <p class="contact-subtitle"></p>
+
+      <div class="contact-profile">
+        <div class="profile-container">
+          <img
+            src={profileImage.src}
+            alt="Profile Photo"
+            class="contact-profile-photo"
+          />
+
+          <!-- Social Icons Orbit -->
+          <div class="social-orbit">
+            <div class="orbit-icon" style="--angle: 0deg; --height: 0px;">
+              <a
+                href="https://github.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="social-orbit-link github"
+              >
+                <i class="fab fa-github"></i>
+              </a>
+            </div>
+            <div class="orbit-icon" style="--angle: 60deg; --height: 15px;">
+              <a
+                href="https://t.me"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="social-orbit-link telegram"
+              >
+                <i class="fab fa-telegram" style="rotate: 315deg;"></i>
+              </a>
+            </div>
+            <div class="orbit-icon" style="--angle: 120deg; --height: -10px;">
+              <a
+                href="https://linkedin.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="social-orbit-link linkedin"
+              >
+                <i class="fab fa-linkedin" style="rotate: 240deg;"></i>
+              </a>
+            </div>
+            <div class="orbit-icon" style="--angle: 180deg; --height: 20px;">
+              <a
+                href="mailto:contact@example.com"
+                class="social-orbit-link email"
+              >
+                <i class="fas fa-envelope" style="rotate: 180deg;"></i>
+              </a>
+            </div>
+            <div class="orbit-icon" style="--angle: 240deg; --height: -5px;">
+              <a
+                href="https://wa.me"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="social-orbit-link whatsapp"
+              >
+                <i class="fab fa-whatsapp" style="rotate: 470deg;"></i>
+              </a>
+            </div>
+            <div class="orbit-icon" style="--angle: 300deg; --height: 10px;">
+              <a
+                href="https://youtube.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="social-orbit-link youtube"
+              >
+                <i class="fab fa-youtube" style="rotate: 60deg;"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="contact-info">
+          <div class="contact-name">
+            <h3>Guel Bandeira</h3>
+            <i class="fas fa-check-circle verified-badge"></i>
+          </div>
+          <p class="contact-role">Fullstack developer</p>
+        </div>
+      </div>
+
+      <div class="contact-social">
+        <a
+          href="https://github.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="social-link"
+        >
+          <i class="fab fa-github"></i>
+          <span>GitHub</span>
+        </a>
+        <a
+          href="https://t.me"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="social-link"
+        >
+          <i class="fab fa-telegram"></i>
+          <span>Telegram</span>
+        </a>
+        <a
+          href="https://linkedin.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="social-link"
+        >
+          <i class="fab fa-linkedin"></i>
+          <span>LinkedIn</span>
+        </a>
+        <a href="mailto:contact@example.com" class="social-link">
+          <i class="fas fa-envelope"></i>
+          <span>Email</span>
+        </a>
+        <a
+          href="https://wa.me"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="social-link"
+        >
+          <i class="fab fa-whatsapp"></i>
+          <span>WhatsApp</span>
+        </a>
+        <a
+          href="https://youtube.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="social-link"
+        >
+          <i class="fab fa-youtube"></i>
+          <span>YouTube</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style lang="scss">
   body {
-    background-color: black;
-    height: 100vh;
-    margin: 0rem;
-    overflow: hidden;
+    background-color: #010c23;
+    overflow-x: hidden;
+  }
+  // Font Face Declaration
+  @font-face {
+    font-family: "Furious Styles";
+    src: url("../assets/Furious Styles - Demo.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
   }
 
-  @keyframes rotate {
-    from {
-      rotate: 0deg;
-    }
-    50% {
-      scale: 1 1.5;
-    }
-    to {
-      rotate: 360deg;
-    }
-  }
+  // Variables
+  $primary-gradient: linear-gradient(90deg, #6bbaff 0%, #037de9 100%);
+  $primary-color: #6bbaff;
+  $secondary-color: #037de9;
+  $white: #ffffff;
+  $black: #1a1a1a;
+  $gray: #f8f9fa;
 
-  /* -- Links -- */
-  #links {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-    position: absolute;
-    top: 0px;
-    left: 0px;
-    z-index: 10;
-    padding: 1rem;
-  }
-  .meta-link {
+  // Mixins
+  @mixin flex-center {
     display: flex;
     align-items: center;
-    gap: 0.5rem;
+    justify-content: center;
   }
-  .meta-link > :is(span, a) {
-    font-family: "Rubik", sans-serif;
-    color: white;
+
+  @mixin glass-effect {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 20px;
   }
-  .meta-link > .label {
-    width: 100px;
-    text-align: right;
+
+  .ag-glitch_item {
+    background-color: transparent;
+    background-blend-mode: normal;
+    background: url({profileImage.src}) no-repeat center;
+
+    position: absolute;
+    top: 15%;
+    left: 55%;
+    right: 15%;
+    bottom: 15%;
+
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
   }
-  .meta-link > a {
-    text-decoration: none;
-    outline: none;
+  .ag-glitch_item:nth-child(n + 2) {
+    opacity: 0;
+    -webkit-animation-duration: 2s;
+    animation-duration: 2s;
+    -webkit-animation-delay: 1s;
+    animation-delay: 1s;
+    -webkit-animation-timing-function: linear;
+    animation-timing-function: linear;
+    -webkit-animation-iteration-count: infinite;
+    animation-iteration-count: infinite;
   }
-  .meta-link > a.source {
-    color: rgb(94, 106, 210);
+  .ag-glitch_item:nth-child(2) {
+    background-color: transparent;
+    background-blend-mode: normal;
+    -webkit-animation-name: glitch-anim-1;
+    animation-name: glitch-anim-1;
   }
-  .meta-link > a:is(:hover, :focus) > i {
-    color: white;
+  .ag-glitch_item:nth-child(3) {
+    background-color: transparent;
+    background-blend-mode: normal;
+    -webkit-animation-name: glitch-anim-2;
+    animation-name: glitch-anim-2;
   }
-  .meta-link > a.youtube {
-    color: rgb(239, 83, 80);
+  .ag-glitch_item:nth-child(4) {
+    background-color: transparent;
+    background-blend-mode: overlay;
+    -webkit-animation-name: glitch-anim-3;
+    animation-name: glitch-anim-3;
   }
-  .meta-link > a.youtube > i {
-    padding-top: 0.2rem;
+  .ag-glitch_item:nth-child(5) {
+    background-color: transparent;
+    background-blend-mode: overlay;
+    -webkit-animation-name: glitch-anim-flash;
+    animation-name: glitch-anim-flash;
   }
-  .meta-link > a > i {
-    height: 1rem;
-    line-height: 1rem;
+
+  @-webkit-keyframes glitch-anim-1 {
+    0% {
+      opacity: 1;
+      -webkit-transform: translate3d(3px, 0, 0);
+      transform: translate3d(3px, 0, 0);
+      -webkit-clip-path: polygon(0 2%, 100% 2%, 100% 5%, 0 5%);
+      clip-path: polygon(0 2%, 100% 2%, 100% 5%, 0 5%);
+    }
+    2% {
+      -webkit-clip-path: polygon(0 15%, 100% 15%, 100% 15%, 0 15%);
+      clip-path: polygon(0 15%, 100% 15%, 100% 15%, 0 15%);
+    }
+    4% {
+      -webkit-clip-path: polygon(0 10%, 100% 10%, 100% 20%, 0 20%);
+      clip-path: polygon(0 10%, 100% 10%, 100% 20%, 0 20%);
+    }
+    6% {
+      -webkit-clip-path: polygon(0 1%, 100% 1%, 100% 2%, 0 2%);
+      clip-path: polygon(0 1%, 100% 1%, 100% 2%, 0 2%);
+    }
+    8% {
+      -webkit-clip-path: polygon(0 33%, 100% 33%, 100% 33%, 0 33%);
+      clip-path: polygon(0 33%, 100% 33%, 100% 33%, 0 33%);
+    }
+    10% {
+      -webkit-clip-path: polygon(0 44%, 100% 44%, 100% 44%, 0 44%);
+      clip-path: polygon(0 44%, 100% 44%, 100% 44%, 0 44%);
+    }
+    12% {
+      -webkit-clip-path: polygon(0 50%, 100% 50%, 100% 20%, 0 20%);
+      clip-path: polygon(0 50%, 100% 50%, 100% 20%, 0 20%);
+    }
+    14% {
+      -webkit-clip-path: polygon(0 70%, 100% 70%, 100% 70%, 0 70%);
+      clip-path: polygon(0 70%, 100% 70%, 100% 70%, 0 70%);
+    }
+    16% {
+      -webkit-clip-path: polygon(0 80%, 100% 80%, 100% 80%, 0 80%);
+      clip-path: polygon(0 80%, 100% 80%, 100% 80%, 0 80%);
+    }
+    18% {
+      -webkit-clip-path: polygon(0 50%, 100% 50%, 100% 55%, 0 55%);
+      clip-path: polygon(0 50%, 100% 50%, 100% 55%, 0 55%);
+    }
+    20% {
+      -webkit-clip-path: polygon(0 70%, 100% 70%, 100% 80%, 0 80%);
+      clip-path: polygon(0 70%, 100% 70%, 100% 80%, 0 80%);
+    }
+    21.9% {
+      opacity: 1;
+      -webkit-transform: translate3d(3px, 0, 0);
+      transform: translate3d(3px, 0, 0);
+    }
+    22%,
+    100% {
+      opacity: 0;
+      -webkit-transform: translate3d(0, 0, 0);
+      transform: translate3d(0, 0, 0);
+      -webkit-clip-path: polygon(0 0, 0 0, 0 0, 0 0);
+      clip-path: polygon(0 0, 0 0, 0 0, 0 0);
+    }
+  }
+
+  @keyframes glitch-anim-1 {
+    0% {
+      opacity: 1;
+      -webkit-transform: translate3d(3px, 0, 0);
+      transform: translate3d(3px, 0, 0);
+      -webkit-clip-path: polygon(0 2%, 100% 2%, 100% 5%, 0 5%);
+      clip-path: polygon(0 2%, 100% 2%, 100% 5%, 0 5%);
+    }
+    2% {
+      -webkit-clip-path: polygon(0 15%, 100% 15%, 100% 15%, 0 15%);
+      clip-path: polygon(0 15%, 100% 15%, 100% 15%, 0 15%);
+    }
+    4% {
+      -webkit-clip-path: polygon(0 10%, 100% 10%, 100% 20%, 0 20%);
+      clip-path: polygon(0 10%, 100% 10%, 100% 20%, 0 20%);
+    }
+    6% {
+      -webkit-clip-path: polygon(0 1%, 100% 1%, 100% 2%, 0 2%);
+      clip-path: polygon(0 1%, 100% 1%, 100% 2%, 0 2%);
+    }
+    8% {
+      -webkit-clip-path: polygon(0 33%, 100% 33%, 100% 33%, 0 33%);
+      clip-path: polygon(0 33%, 100% 33%, 100% 33%, 0 33%);
+    }
+    10% {
+      -webkit-clip-path: polygon(0 44%, 100% 44%, 100% 44%, 0 44%);
+      clip-path: polygon(0 44%, 100% 44%, 100% 44%, 0 44%);
+    }
+    12% {
+      -webkit-clip-path: polygon(0 50%, 100% 50%, 100% 20%, 0 20%);
+      clip-path: polygon(0 50%, 100% 50%, 100% 20%, 0 20%);
+    }
+    14% {
+      -webkit-clip-path: polygon(0 70%, 100% 70%, 100% 70%, 0 70%);
+      clip-path: polygon(0 70%, 100% 70%, 100% 70%, 0 70%);
+    }
+    16% {
+      -webkit-clip-path: polygon(0 80%, 100% 80%, 100% 80%, 0 80%);
+      clip-path: polygon(0 80%, 100% 80%, 100% 80%, 0 80%);
+    }
+    18% {
+      -webkit-clip-path: polygon(0 50%, 100% 50%, 100% 55%, 0 55%);
+      clip-path: polygon(0 50%, 100% 50%, 100% 55%, 0 55%);
+    }
+    20% {
+      -webkit-clip-path: polygon(0 70%, 100% 70%, 100% 80%, 0 80%);
+      clip-path: polygon(0 70%, 100% 70%, 100% 80%, 0 80%);
+    }
+    21.9% {
+      opacity: 1;
+      -webkit-transform: translate3d(3px, 0, 0);
+      transform: translate3d(3px, 0, 0);
+    }
+    22%,
+    100% {
+      opacity: 0;
+      -webkit-transform: translate3d(0, 0, 0);
+      transform: translate3d(0, 0, 0);
+      -webkit-clip-path: polygon(0 0, 0 0, 0 0, 0 0);
+      clip-path: polygon(0 0, 0 0, 0 0, 0 0);
+    }
+  }
+
+  @-webkit-keyframes glitch-anim-2 {
+    0% {
+      opacity: 1;
+      -webkit-transform: translate3d(calc(-1 * 3px), 0, 0);
+      transform: translate3d(calc(-1 * 3px), 0, 0);
+      -webkit-clip-path: polygon(0 25%, 100% 25%, 100% 30%, 0 30%);
+      clip-path: polygon(0 25%, 100% 25%, 100% 30%, 0 30%);
+    }
+    3% {
+      -webkit-clip-path: polygon(0 3%, 100% 3%, 100% 3%, 0 3%);
+      clip-path: polygon(0 3%, 100% 3%, 100% 3%, 0 3%);
+    }
+    5% {
+      -webkit-clip-path: polygon(0 5%, 100% 5%, 100% 20%, 0 20%);
+      clip-path: polygon(0 5%, 100% 5%, 100% 20%, 0 20%);
+    }
+    7% {
+      -webkit-clip-path: polygon(0 20%, 100% 20%, 100% 20%, 0 20%);
+      clip-path: polygon(0 20%, 100% 20%, 100% 20%, 0 20%);
+    }
+    9% {
+      -webkit-clip-path: polygon(0 40%, 100% 40%, 100% 40%, 0 40%);
+      clip-path: polygon(0 40%, 100% 40%, 100% 40%, 0 40%);
+    }
+    11% {
+      -webkit-clip-path: polygon(0 52%, 100% 52%, 100% 59%, 0 59%);
+      clip-path: polygon(0 52%, 100% 52%, 100% 59%, 0 59%);
+    }
+    13% {
+      -webkit-clip-path: polygon(0 60%, 100% 60%, 100% 60%, 0 60%);
+      clip-path: polygon(0 60%, 100% 60%, 100% 60%, 0 60%);
+    }
+    15% {
+      -webkit-clip-path: polygon(0 75%, 100% 75%, 100% 75%, 0 75%);
+      clip-path: polygon(0 75%, 100% 75%, 100% 75%, 0 75%);
+    }
+    17% {
+      -webkit-clip-path: polygon(0 65%, 100% 65%, 100% 40%, 0 40%);
+      clip-path: polygon(0 65%, 100% 65%, 100% 40%, 0 40%);
+    }
+    19% {
+      -webkit-clip-path: polygon(0 45%, 100% 45%, 100% 50%, 0 50%);
+      clip-path: polygon(0 45%, 100% 45%, 100% 50%, 0 50%);
+    }
+    20% {
+      -webkit-clip-path: polygon(0 14%, 100% 14%, 100% 33%, 0 33%);
+      clip-path: polygon(0 14%, 100% 14%, 100% 33%, 0 33%);
+    }
+    21.9% {
+      opacity: 1;
+      -webkit-transform: translate3d(calc(-1 * 3px), 0, 0);
+      transform: translate3d(calc(-1 * 3px), 0, 0);
+    }
+    22%,
+    100% {
+      opacity: 0;
+      -webkit-transform: translate3d(0, 0, 0);
+      transform: translate3d(0, 0, 0);
+      -webkit-clip-path: polygon(0 0, 0 0, 0 0, 0 0);
+      clip-path: polygon(0 0, 0 0, 0 0, 0 0);
+    }
+  }
+
+  @keyframes glitch-anim-2 {
+    0% {
+      opacity: 1;
+      -webkit-transform: translate3d(calc(-1 * 3px), 0, 0);
+      transform: translate3d(calc(-1 * 3px), 0, 0);
+      -webkit-clip-path: polygon(0 25%, 100% 25%, 100% 30%, 0 30%);
+      clip-path: polygon(0 25%, 100% 25%, 100% 30%, 0 30%);
+    }
+    3% {
+      -webkit-clip-path: polygon(0 3%, 100% 3%, 100% 3%, 0 3%);
+      clip-path: polygon(0 3%, 100% 3%, 100% 3%, 0 3%);
+    }
+    5% {
+      -webkit-clip-path: polygon(0 5%, 100% 5%, 100% 20%, 0 20%);
+      clip-path: polygon(0 5%, 100% 5%, 100% 20%, 0 20%);
+    }
+    7% {
+      -webkit-clip-path: polygon(0 20%, 100% 20%, 100% 20%, 0 20%);
+      clip-path: polygon(0 20%, 100% 20%, 100% 20%, 0 20%);
+    }
+    9% {
+      -webkit-clip-path: polygon(0 40%, 100% 40%, 100% 40%, 0 40%);
+      clip-path: polygon(0 40%, 100% 40%, 100% 40%, 0 40%);
+    }
+    11% {
+      -webkit-clip-path: polygon(0 52%, 100% 52%, 100% 59%, 0 59%);
+      clip-path: polygon(0 52%, 100% 52%, 100% 59%, 0 59%);
+    }
+    13% {
+      -webkit-clip-path: polygon(0 60%, 100% 60%, 100% 60%, 0 60%);
+      clip-path: polygon(0 60%, 100% 60%, 100% 60%, 0 60%);
+    }
+    15% {
+      -webkit-clip-path: polygon(0 75%, 100% 75%, 100% 75%, 0 75%);
+      clip-path: polygon(0 75%, 100% 75%, 100% 75%, 0 75%);
+    }
+    17% {
+      -webkit-clip-path: polygon(0 65%, 100% 65%, 100% 40%, 0 40%);
+      clip-path: polygon(0 65%, 100% 65%, 100% 40%, 0 40%);
+    }
+    19% {
+      -webkit-clip-path: polygon(0 45%, 100% 45%, 100% 50%, 0 50%);
+      clip-path: polygon(0 45%, 100% 45%, 100% 50%, 0 50%);
+    }
+    20% {
+      -webkit-clip-path: polygon(0 14%, 100% 14%, 100% 33%, 0 33%);
+      clip-path: polygon(0 14%, 100% 14%, 100% 33%, 0 33%);
+    }
+    21.9% {
+      opacity: 1;
+      -webkit-transform: translate3d(calc(-1 * 3px), 0, 0);
+      transform: translate3d(calc(-1 * 3px), 0, 0);
+    }
+    22%,
+    100% {
+      opacity: 0;
+      -webkit-transform: translate3d(0, 0, 0);
+      transform: translate3d(0, 0, 0);
+      -webkit-clip-path: polygon(0 0, 0 0, 0 0, 0 0);
+      clip-path: polygon(0 0, 0 0, 0 0, 0 0);
+    }
+  }
+
+  @-webkit-keyframes glitch-anim-3 {
+    0% {
+      opacity: 1;
+      -webkit-transform: translate3d(0, calc(-1 * 3px), 0) scale3d(-1, -1, 1);
+      transform: translate3d(0, calc(-1 * 3px), 0) scale3d(-1, -1, 1);
+      -webkit-clip-path: polygon(0 1%, 100% 1%, 100% 3%, 0 3%);
+      clip-path: polygon(0 1%, 100% 1%, 100% 3%, 0 3%);
+    }
+    1.5% {
+      -webkit-clip-path: polygon(0 10%, 100% 10%, 100% 9%, 0 9%);
+      clip-path: polygon(0 10%, 100% 10%, 100% 9%, 0 9%);
+    }
+    2% {
+      -webkit-clip-path: polygon(0 5%, 100% 5%, 100% 6%, 0 6%);
+      clip-path: polygon(0 5%, 100% 5%, 100% 6%, 0 6%);
+    }
+    2.5% {
+      -webkit-clip-path: polygon(0 20%, 100% 20%, 100% 20%, 0 20%);
+      clip-path: polygon(0 20%, 100% 20%, 100% 20%, 0 20%);
+    }
+    3% {
+      -webkit-clip-path: polygon(0 10%, 100% 10%, 100% 10%, 0 10%);
+      clip-path: polygon(0 10%, 100% 10%, 100% 10%, 0 10%);
+    }
+    5% {
+      -webkit-clip-path: polygon(0 30%, 100% 30%, 100% 25%, 0 25%);
+      clip-path: polygon(0 30%, 100% 30%, 100% 25%, 0 25%);
+    }
+    5.5% {
+      -webkit-clip-path: polygon(0 15%, 100% 15%, 100% 16%, 0 16%);
+      clip-path: polygon(0 15%, 100% 15%, 100% 16%, 0 16%);
+    }
+    7% {
+      -webkit-clip-path: polygon(0 40%, 100% 40%, 100% 39%, 0 39%);
+      clip-path: polygon(0 40%, 100% 40%, 100% 39%, 0 39%);
+    }
+    8% {
+      -webkit-clip-path: polygon(0 20%, 100% 20%, 100% 21%, 0 21%);
+      clip-path: polygon(0 20%, 100% 20%, 100% 21%, 0 21%);
+    }
+    9% {
+      -webkit-clip-path: polygon(0 60%, 100% 60%, 100% 55%, 0 55%);
+      clip-path: polygon(0 60%, 100% 60%, 100% 55%, 0 55%);
+    }
+    10.5% {
+      -webkit-clip-path: polygon(0 30%, 100% 30%, 100% 31%, 0 31%);
+      clip-path: polygon(0 30%, 100% 30%, 100% 31%, 0 31%);
+    }
+    11% {
+      -webkit-clip-path: polygon(0 70%, 100% 70%, 100% 69%, 0 69%);
+      clip-path: polygon(0 70%, 100% 70%, 100% 69%, 0 69%);
+    }
+    13% {
+      -webkit-clip-path: polygon(0 40%, 100% 40%, 100% 41%, 0 41%);
+      clip-path: polygon(0 40%, 100% 40%, 100% 41%, 0 41%);
+    }
+    14% {
+      -webkit-clip-path: polygon(0 80%, 100% 80%, 100% 75%, 0 75%);
+      clip-path: polygon(0 80%, 100% 80%, 100% 75%, 0 75%);
+    }
+    14.5% {
+      -webkit-clip-path: polygon(0 50%, 100% 50%, 100% 51%, 0 51%);
+      clip-path: polygon(0 50%, 100% 50%, 100% 51%, 0 51%);
+    }
+    15% {
+      -webkit-clip-path: polygon(0 90%, 100% 90%, 100% 90%, 0 90%);
+      clip-path: polygon(0 90%, 100% 90%, 100% 90%, 0 90%);
+    }
+    16% {
+      -webkit-clip-path: polygon(0 60%, 100% 60%, 100% 60%, 0 60%);
+      clip-path: polygon(0 60%, 100% 60%, 100% 60%, 0 60%);
+    }
+    18% {
+      -webkit-clip-path: polygon(0 100%, 100% 100%, 100% 99%, 0 99%);
+      clip-path: polygon(0 100%, 100% 100%, 100% 99%, 0 99%);
+    }
+    20% {
+      -webkit-clip-path: polygon(0 70%, 100% 70%, 100% 71%, 0 71%);
+      clip-path: polygon(0 70%, 100% 70%, 100% 71%, 0 71%);
+    }
+    21.9% {
+      opacity: 1;
+      -webkit-transform: translate3d(0, calc(-1 * 3px), 0) scale3d(-1, -1, 1);
+      transform: translate3d(0, calc(-1 * 3px), 0) scale3d(-1, -1, 1);
+    }
+    22%,
+    100% {
+      opacity: 0;
+      -webkit-transform: translate3d(0, 0, 0);
+      transform: translate3d(0, 0, 0);
+      -webkit-clip-path: polygon(0 0, 0 0, 0 0, 0 0);
+      clip-path: polygon(0 0, 0 0, 0 0, 0 0);
+    }
+  }
+
+  @keyframes glitch-anim-3 {
+    0% {
+      opacity: 1;
+      -webkit-transform: translate3d(0, calc(-1 * 3px), 0) scale3d(-1, -1, 1);
+      transform: translate3d(0, calc(-1 * 3px), 0) scale3d(-1, -1, 1);
+      -webkit-clip-path: polygon(0 1%, 100% 1%, 100% 3%, 0 3%);
+      clip-path: polygon(0 1%, 100% 1%, 100% 3%, 0 3%);
+    }
+    1.5% {
+      -webkit-clip-path: polygon(0 10%, 100% 10%, 100% 9%, 0 9%);
+      clip-path: polygon(0 10%, 100% 10%, 100% 9%, 0 9%);
+    }
+    2% {
+      -webkit-clip-path: polygon(0 5%, 100% 5%, 100% 6%, 0 6%);
+      clip-path: polygon(0 5%, 100% 5%, 100% 6%, 0 6%);
+    }
+    2.5% {
+      -webkit-clip-path: polygon(0 20%, 100% 20%, 100% 20%, 0 20%);
+      clip-path: polygon(0 20%, 100% 20%, 100% 20%, 0 20%);
+    }
+    3% {
+      -webkit-clip-path: polygon(0 10%, 100% 10%, 100% 10%, 0 10%);
+      clip-path: polygon(0 10%, 100% 10%, 100% 10%, 0 10%);
+    }
+    5% {
+      -webkit-clip-path: polygon(0 30%, 100% 30%, 100% 25%, 0 25%);
+      clip-path: polygon(0 30%, 100% 30%, 100% 25%, 0 25%);
+    }
+    5.5% {
+      -webkit-clip-path: polygon(0 15%, 100% 15%, 100% 16%, 0 16%);
+      clip-path: polygon(0 15%, 100% 15%, 100% 16%, 0 16%);
+    }
+    7% {
+      -webkit-clip-path: polygon(0 40%, 100% 40%, 100% 39%, 0 39%);
+      clip-path: polygon(0 40%, 100% 40%, 100% 39%, 0 39%);
+    }
+    8% {
+      -webkit-clip-path: polygon(0 20%, 100% 20%, 100% 21%, 0 21%);
+      clip-path: polygon(0 20%, 100% 20%, 100% 21%, 0 21%);
+    }
+    9% {
+      -webkit-clip-path: polygon(0 60%, 100% 60%, 100% 55%, 0 55%);
+      clip-path: polygon(0 60%, 100% 60%, 100% 55%, 0 55%);
+    }
+    10.5% {
+      -webkit-clip-path: polygon(0 30%, 100% 30%, 100% 31%, 0 31%);
+      clip-path: polygon(0 30%, 100% 30%, 100% 31%, 0 31%);
+    }
+    11% {
+      -webkit-clip-path: polygon(0 70%, 100% 70%, 100% 69%, 0 69%);
+      clip-path: polygon(0 70%, 100% 70%, 100% 69%, 0 69%);
+    }
+    13% {
+      -webkit-clip-path: polygon(0 40%, 100% 40%, 100% 41%, 0 41%);
+      clip-path: polygon(0 40%, 100% 40%, 100% 41%, 0 41%);
+    }
+    14% {
+      -webkit-clip-path: polygon(0 80%, 100% 80%, 100% 75%, 0 75%);
+      clip-path: polygon(0 80%, 100% 80%, 100% 75%, 0 75%);
+    }
+    14.5% {
+      -webkit-clip-path: polygon(0 50%, 100% 50%, 100% 51%, 0 51%);
+      clip-path: polygon(0 50%, 100% 50%, 100% 51%, 0 51%);
+    }
+    15% {
+      -webkit-clip-path: polygon(0 90%, 100% 90%, 100% 90%, 0 90%);
+      clip-path: polygon(0 90%, 100% 90%, 100% 90%, 0 90%);
+    }
+    16% {
+      -webkit-clip-path: polygon(0 60%, 100% 60%, 100% 60%, 0 60%);
+      clip-path: polygon(0 60%, 100% 60%, 100% 60%, 0 60%);
+    }
+    18% {
+      -webkit-clip-path: polygon(0 100%, 100% 100%, 100% 99%, 0 99%);
+      clip-path: polygon(0 100%, 100% 100%, 100% 99%, 0 99%);
+    }
+    20% {
+      -webkit-clip-path: polygon(0 70%, 100% 70%, 100% 71%, 0 71%);
+      clip-path: polygon(0 70%, 100% 70%, 100% 71%, 0 71%);
+    }
+    21.9% {
+      opacity: 1;
+      -webkit-transform: translate3d(0, calc(-1 * 3px), 0) scale3d(-1, -1, 1);
+      transform: translate3d(0, calc(-1 * 3px), 0) scale3d(-1, -1, 1);
+    }
+    22%,
+    100% {
+      opacity: 0;
+      -webkit-transform: translate3d(0, 0, 0);
+      transform: translate3d(0, 0, 0);
+      -webkit-clip-path: polygon(0 0, 0 0, 0 0, 0 0);
+      clip-path: polygon(0 0, 0 0, 0 0, 0 0);
+    }
+  }
+
+  @-webkit-keyframes glitch-anim-text {
+    0% {
+      -webkit-transform: translate3d(calc(-1 * 3px), 0, 0) scale3d(-1, -1, 1);
+      transform: translate3d(calc(-1 * 3px), 0, 0) scale3d(-1, -1, 1);
+      -webkit-clip-path: polygon(0 20%, 100% 20%, 100% 21%, 0 21%);
+      clip-path: polygon(0 20%, 100% 20%, 100% 21%, 0 21%);
+    }
+    2% {
+      -webkit-clip-path: polygon(0 33%, 100% 33%, 100% 33%, 0 33%);
+      clip-path: polygon(0 33%, 100% 33%, 100% 33%, 0 33%);
+    }
+    4% {
+      -webkit-clip-path: polygon(0 44%, 100% 44%, 100% 44%, 0 44%);
+      clip-path: polygon(0 44%, 100% 44%, 100% 44%, 0 44%);
+    }
+    5% {
+      -webkit-clip-path: polygon(0 50%, 100% 50%, 100% 20%, 0 20%);
+      clip-path: polygon(0 50%, 100% 50%, 100% 20%, 0 20%);
+    }
+    6% {
+      -webkit-clip-path: polygon(0 70%, 100% 70%, 100% 70%, 0 70%);
+      clip-path: polygon(0 70%, 100% 70%, 100% 70%, 0 70%);
+    }
+    7% {
+      -webkit-clip-path: polygon(0 80%, 100% 80%, 100% 80%, 0 80%);
+      clip-path: polygon(0 80%, 100% 80%, 100% 80%, 0 80%);
+    }
+    8% {
+      -webkit-clip-path: polygon(0 50%, 100% 50%, 100% 55%, 0 55%);
+      clip-path: polygon(0 50%, 100% 50%, 100% 55%, 0 55%);
+    }
+    9% {
+      -webkit-clip-path: polygon(0 70%, 100% 70%, 100% 80%, 0 80%);
+      clip-path: polygon(0 70%, 100% 70%, 100% 80%, 0 80%);
+    }
+    9.9% {
+      -webkit-transform: translate3d(calc(-1 * 3px), 0, 0) scale3d(-1, -1, 1);
+      transform: translate3d(calc(-1 * 3px), 0, 0) scale3d(-1, -1, 1);
+    }
+    10%,
+    100% {
+      -webkit-transform: translate3d(0, 0, 0) scale3d(1, 1, 1);
+      transform: translate3d(0, 0, 0) scale3d(1, 1, 1);
+      -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+      clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+    }
+  }
+
+  @keyframes glitch-anim-text {
+    0% {
+      -webkit-transform: translate3d(calc(-1 * 3px), 0, 0) scale3d(-1, -1, 1);
+      transform: translate3d(calc(-1 * 3px), 0, 0) scale3d(-1, -1, 1);
+      -webkit-clip-path: polygon(0 20%, 100% 20%, 100% 21%, 0 21%);
+      clip-path: polygon(0 20%, 100% 20%, 100% 21%, 0 21%);
+    }
+    2% {
+      -webkit-clip-path: polygon(0 33%, 100% 33%, 100% 33%, 0 33%);
+      clip-path: polygon(0 33%, 100% 33%, 100% 33%, 0 33%);
+    }
+    4% {
+      -webkit-clip-path: polygon(0 44%, 100% 44%, 100% 44%, 0 44%);
+      clip-path: polygon(0 44%, 100% 44%, 100% 44%, 0 44%);
+    }
+    5% {
+      -webkit-clip-path: polygon(0 50%, 100% 50%, 100% 20%, 0 20%);
+      clip-path: polygon(0 50%, 100% 50%, 100% 20%, 0 20%);
+    }
+    6% {
+      -webkit-clip-path: polygon(0 70%, 100% 70%, 100% 70%, 0 70%);
+      clip-path: polygon(0 70%, 100% 70%, 100% 70%, 0 70%);
+    }
+    7% {
+      -webkit-clip-path: polygon(0 80%, 100% 80%, 100% 80%, 0 80%);
+      clip-path: polygon(0 80%, 100% 80%, 100% 80%, 0 80%);
+    }
+    8% {
+      -webkit-clip-path: polygon(0 50%, 100% 50%, 100% 55%, 0 55%);
+      clip-path: polygon(0 50%, 100% 50%, 100% 55%, 0 55%);
+    }
+    9% {
+      -webkit-clip-path: polygon(0 70%, 100% 70%, 100% 80%, 0 80%);
+      clip-path: polygon(0 70%, 100% 70%, 100% 80%, 0 80%);
+    }
+    9.9% {
+      -webkit-transform: translate3d(calc(-1 * 3px), 0, 0) scale3d(-1, -1, 1);
+      transform: translate3d(calc(-1 * 3px), 0, 0) scale3d(-1, -1, 1);
+    }
+    10%,
+    100% {
+      -webkit-transform: translate3d(0, 0, 0) scale3d(1, 1, 1);
+      transform: translate3d(0, 0, 0) scale3d(1, 1, 1);
+      -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+      clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+    }
+  }
+
+  @-webkit-keyframes glitch-anim-flash {
+    0%,
+    5% {
+      opacity: 0.2;
+      -webkit-transform: translate3d(3px, 3px, 0);
+      transform: translate3d(3px, 3px, 0);
+    }
+    5.5%,
+    100% {
+      opacity: 0;
+      -webkit-transform: translate3d(0, 0, 0);
+      transform: translate3d(0, 0, 0);
+    }
+  }
+
+  @keyframes glitch-anim-flash {
+    0%,
+    5% {
+      opacity: 0.2;
+      -webkit-transform: translate3d(3px, 3px, 0);
+      transform: translate3d(3px, 3px, 0);
+    }
+    5.5%,
+    100% {
+      opacity: 0;
+      -webkit-transform: translate3d(0, 0, 0);
+      transform: translate3d(0, 0, 0);
+    }
+  }
+
+  .handwritten {
+    font-family: "Furious Styles", sans-serif;
+  }
+
+  // Parallax and Transition Effects
+  .parallax-section {
+    position: relative;
+    transform-style: preserve-3d;
+    will-change: transform;
+    transition: filter 0.3s ease;
+  }
+
+  // Hero Section
+  .hero-section {
+    position: fixed;
+    top: 0;
+    left: 0;
+    min-height: 100vh;
+    width: 100%;
+    overflow: hidden;
+    @include flex-center;
+    background: #010c23;
+    z-index: 1;
+
+    @media (max-width: 768px) {
+      position: relative;
+    }
+
+    // Background Video
+    .background-video {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: -2;
+    }
+
+    // Overlay
+    .overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(
+        354deg,
+        rgb(0 0 0 / 30%) 0%,
+        rgb(0 0 0 / 20%) 50%,
+        rgb(0 0 0 / 40%) 100%
+      );
+      z-index: -1;
+    }
+
+    // Content Container
+    .hero-content {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 2rem;
+      z-index: 1;
+
+      @media (max-width: 768px) {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto;
+        gap: 2rem;
+        text-align: center;
+      }
+    }
+
+    // Text Content
+    .hero-text {
+      @include flex-center;
+      flex-direction: column;
+      align-items: flex-start;
+
+      @media (max-width: 768px) {
+        align-items: center;
+        order: 2;
+      }
+
+      .hero-greeting {
+        position: absolute;
+        top: 0.9rem;
+        left: -3rem;
+        font-size: clamp(0.9rem, 9.2vw, 2.1rem);
+        font-weight: 300;
+        margin: 0;
+        opacity: 0.9;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        transform: rotate(-8deg);
+        z-index: 2;
+        text-shadow: 0 3px 3px black;
+        color: #6bbaff;
+        @media (max-width: 768px) {
+          font-size: clamp(0.9rem, 9.2vw, 1.5rem);
+          left: -1.7rem;
+          top: 0.9rem;
+        }
+      }
+
+      .hero-title {
+        position: relative;
+        font-size: clamp(2.5rem, 5vw, 4rem);
+        font-weight: 700;
+        color: $white;
+        margin: 0;
+        margin-bottom: 2rem;
+        padding-top: 1rem;
+        // text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+
+        @media (max-width: 768px) {
+          text-align: center;
+        }
+      }
+
+      .hero-description {
+        font-size: clamp(1rem, 2vw, 1.25rem);
+        line-height: 1.6;
+        color: $white;
+        margin: 0;
+        margin-bottom: 2rem;
+        max-width: 500px;
+        @include glass-effect;
+        padding: 1.5rem;
+
+        @media (max-width: 768px) {
+          text-align: center;
+          max-width: 100%;
+        }
+      }
+
+      .hero-buttons {
+        display: flex;
+        gap: 1rem;
+        flex-wrap: wrap;
+
+        @media (max-width: 768px) {
+          justify-content: center;
+        }
+
+        .btn {
+          padding: 0.75rem 1.5rem;
+          border: none;
+          border-radius: 50px;
+          font-size: 1rem;
+          font-weight: 600;
+          cursor: pointer;
+          transition: all 0.3s ease;
+          text-decoration: none;
+          display: inline-block;
+
+          &.btn-primary {
+            background: $primary-gradient;
+            color: $white;
+            box-shadow: 0 4px 15px rgba(107, 186, 255, 0.3);
+
+            &:hover {
+              transform: translateY(-2px);
+              box-shadow: 0 6px 20px rgba(107, 186, 255, 0.4);
+            }
+          }
+
+          &.btn-secondary {
+            background: transparent;
+            color: $white;
+            border: 2px solid $primary-color;
+
+            &:hover {
+              background: $primary-color;
+              transform: translateY(-2px);
+            }
+          }
+        }
+      }
+    }
+
+    // Image Content
+    .hero-image {
+      @include flex-center;
+      position: relative;
+
+      @media (max-width: 768px) {
+        order: 1;
+      }
+
+      .profile-photo {
+        width: 300px;
+        height: 300px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 4px solid $primary-color;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        transition: all 0.3s ease;
+        position: relative;
+        z-index: 2;
+
+        @media (max-width: 768px) {
+          width: 250px;
+          height: 250px;
+        }
+
+        @media (max-width: 480px) {
+          width: 200px;
+          height: 200px;
+        }
+
+        &:hover {
+          transform: scale(1.05);
+          box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+        }
+      }
+
+      // Technology Orbit
+      .tech-orbit {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 1000px;
+        height: 1000px;
+        animation: rotate 20s linear infinite;
+        z-index: 1;
+
+        @media (max-width: 768px) {
+          width: 800px;
+          height: 800px;
+        }
+
+        @media (max-width: 480px) {
+          width: 600px;
+          height: 600px;
+        }
+
+        .tech-line {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          width: 2px;
+          height: 400px;
+          transform-origin: 0 0;
+          transform: rotate(var(--angle)) translateY(-50%);
+
+          @media (max-width: 768px) {
+            height: 350px;
+          }
+
+          @media (max-width: 480px) {
+            height: 250px;
+          }
+
+          &::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, $primary-color, transparent);
+            animation: pulse 2s ease-in-out infinite;
+          }
+
+          .tech-logo {
+            position: absolute;
+            bottom: -30px;
+            left: 50%;
+            transform: translateX(-50%);
+            @include flex-center;
+            flex-direction: column;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 15px;
+            padding: 0.5rem;
+            min-width: 80px;
+            transition: all 0.3s ease;
+
+            @media (max-width: 768px) {
+              min-width: 60px;
+              padding: 0.4rem;
+            }
+
+            @media (max-width: 480px) {
+              min-width: 50px;
+              padding: 0.3rem;
+            }
+
+            i {
+              font-size: 1.5rem;
+              color: $primary-color;
+              margin-bottom: 0.25rem;
+
+              @media (max-width: 768px) {
+                font-size: 1.2rem;
+              }
+
+              @media (max-width: 480px) {
+                font-size: 1rem;
+              }
+            }
+
+            span {
+              font-size: 0.7rem;
+              color: $white;
+              font-weight: 700;
+              text-align: center;
+              line-height: 1;
+
+              @media (max-width: 768px) {
+                font-size: 0.6rem;
+              }
+
+              @media (max-width: 480px) {
+                font-size: 0.5rem;
+              }
+            }
+
+            &:hover {
+              transform: translateX(-50%) scale(1.1);
+              background: rgba(107, 186, 255, 0.2);
+              box-shadow: 0 0 20px rgba(107, 186, 255, 0.4);
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .section-header {
+    text-align: center;
+    margin-bottom: 4rem;
+
+    .section-title {
+      font-size: clamp(2.5rem, 5vw, 3.5rem);
+      font-weight: 700;
+      color: $white;
+      margin-bottom: 1rem;
+      background: $primary-gradient;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .section-subtitle {
+      font-size: clamp(1rem, 2vw, 1.25rem);
+      color: rgba(255, 255, 255, 0.8);
+      max-width: 600px;
+      margin: 0 auto;
+      line-height: 1.6;
+      margin-bottom: 7rem;
+
+      @media (max-width: 768px) {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  // My Journey Section
+  .my-journey-section {
+    background: #010c23;
+    padding: 6rem 0;
+    position: relative;
+    z-index: 10;
+    overflow: hidden;
+    transform-style: preserve-3d;
+    will-change: transform;
+    margin-top: 100vh;
+
+    @media (max-width: 768px) {
+      margin-top: 0;
+      padding: 3rem 0;
+    }
+
+    #blob {
+      background-color: white;
+      height: 34vmax;
+      aspect-ratio: 1;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      border-radius: 50%;
+      background: linear-gradient(to right, #6bbaff, #037de9);
+      animation: rotate 20s infinite;
+      opacity: 0.8;
+      z-index: 1;
+    }
+
+    #blur {
+      height: 100%;
+      width: 100%;
+      position: absolute;
+      z-index: 2;
+      backdrop-filter: blur(12vmax);
+      top: 0;
+      left: 0;
+    }
+
+    .v-transition-svg {
+      position: absolute;
+      top: -320px;
+      left: 0;
+      width: 100%;
+      height: 320px;
+      z-index: 1;
+      transform: rotate(180deg);
+
+      @media (max-width: 768px) {
+        height: 200px;
+        top: -200px;
+      }
+
+      @media (max-width: 480px) {
+        height: 150px;
+        top: -150px;
+      }
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      position: relative;
+      z-index: 4;
+
+      @media (max-width: 768px) {
+        padding: 0 1rem;
+      }
+    }
+  }
+
+  .journey-timeline {
+    position: relative;
+    max-width: 1000px;
+    margin: 4rem auto 0;
+    padding: 0 2rem;
+
+    @media (max-width: 768px) {
+      padding: 0;
+      margin: 2rem auto 0;
+    }
+
+    .timeline-line {
+      position: absolute;
+      left: 50%;
+      top: -57px;
+      bottom: 0;
+      width: 4px;
+      background: linear-gradient(180deg, #6bbaff 0%, #037de9 100%);
+      transform: translateX(-50%);
+      height: 0;
+      transition: height 0.5s ease;
+
+      &.animated {
+        height: 100%;
+      }
+
+      @media (max-width: 768px) {
+        left: 20px;
+        transform: none;
+      }
+    }
+  }
+
+  .projects-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
+
+    @media (max-width: 768px) {
+      gap: 3rem;
+    }
+  }
+
+  .tech-logos-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: flex-start;
+    align-items: center;
+    margin-bottom: 2rem;
+
+    @media (max-width: 768px) {
+      gap: 0.75rem;
+      justify-content: center;
+    }
+
+    @media (max-width: 480px) {
+      gap: 0.5rem;
+    }
+  }
+
+  .tech-logos-row .tech-logo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 15px;
+    padding: 0.5rem;
+    min-width: 80px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+
+    @media (max-width: 768px) {
+      min-width: 60px;
+      padding: 0.4rem;
+    }
+
+    @media (max-width: 480px) {
+      min-width: 50px;
+      padding: 0.3rem;
+    }
+
+    i {
+      font-size: 1.5rem;
+      color: $primary-color;
+      margin-bottom: 0.25rem;
+
+      @media (max-width: 768px) {
+        font-size: 1.2rem;
+      }
+
+      @media (max-width: 480px) {
+        font-size: 1rem;
+      }
+    }
+
+    span {
+      font-size: 0.7rem;
+      color: $white;
+      font-weight: 700;
+      text-align: center;
+      line-height: 1;
+
+      @media (max-width: 768px) {
+        font-size: 0.6rem;
+      }
+
+      @media (max-width: 480px) {
+        font-size: 0.5rem;
+      }
+    }
+
+    &:hover {
+      transform: scale(1.1);
+      background: rgba(107, 186, 255, 0.2);
+      box-shadow: 0 0 20px rgba(107, 186, 255, 0.4);
+    }
+  }
+
+  /* quando for esconder com JS */
+  .social-toolbar.hidden {
+    opacity: 0;
+    transform: translateY(100px) !important;
+    transition:
+      opacity 1.4s ease,
+      transform 1.4s ease !important;
+    pointer-events: none !important;
+  }
+
+  /* quando estiver visível */
+  .social-toolbar:not(.hidden) {
+    opacity: 1;
+    transform: translateY(0) !important;
+    transition:
+      opacity 1.4s ease,
+      transform 1.4s ease !important;
+  }
+  // Social Media Toolbar
+  .social-toolbar {
+    transition:
+      opacity 1.4s ease,
+      transform 1.4s ease !important;
+    opacity: 1;
+    transform: translateY(0) !important;
+    position: fixed;
+    bottom: 2rem;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    z-index: 1000;
+    @include glass-effect;
+    padding: 0.5rem 1rem;
+    border-radius: 50px;
+    width: fit-content;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.3s ease-in-out !important;
+    @media (max-width: 768px) {
+      bottom: 1rem;
+      padding: 0.4rem 0.8rem;
+    }
+
+    .social-icons {
+      display: flex;
+      position: relative;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      gap: 0.75rem;
+      justify-content: center;
+      align-items: center;
+
+      @media (max-width: 768px) {
+        gap: 0.5rem;
+      }
+
+      li {
+        list-style: none;
+
+        a {
+          width: 40px;
+          height: 40px;
+          background-color: rgba(255, 255, 255, 0.1);
+          text-align: center;
+          line-height: 40px;
+          font-size: 16px;
+          margin: 0;
+          display: block;
+          border-radius: 50%;
+          position: relative;
+          overflow: hidden;
+          border: 2px solid rgba(255, 255, 255, 0.3);
+          z-index: 1;
+          text-decoration: none;
+          transition: all 0.3s ease;
+
+          @media (max-width: 768px) {
+            width: 35px;
+            height: 35px;
+            line-height: 35px;
+            font-size: 14px;
+          }
+
+          .icon {
+            position: relative;
+            color: $white;
+            transition: 0.5s;
+            z-index: 3;
+          }
+
+          &:hover .icon {
+            color: $white;
+            transform: rotateY(360deg);
+          }
+
+          &:before {
+            content: "";
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: $primary-gradient;
+            transition: 0.5s;
+            z-index: 2;
+          }
+
+          &:hover:before {
+            top: 0;
+          }
+
+          // GitHub background
+          &:has(.fa-github):before {
+            background: #333;
+          }
+
+          // Telegram background
+          &:has(.fa-telegram):before {
+            background: #28a7e8;
+          }
+
+          // LinkedIn background
+          &:has(.fa-linkedin):before {
+            background: #0077b5;
+          }
+
+          // Email background
+          &:has(.fa-envelope):before {
+            background: #ea4335;
+          }
+
+          // WhatsApp background
+          &:has(.fa-whatsapp):before {
+            background: #25d366;
+          }
+
+          // Individual icon colors on hover
+          &:hover {
+            border-color: $primary-color;
+            box-shadow: 0 0 20px rgba(107, 186, 255, 0.4);
+          }
+
+          // GitHub hover
+          &:has(.fa-github):hover {
+            border-color: #333;
+            box-shadow: 0 0 20px rgba(51, 51, 51, 0.4);
+          }
+
+          // Telegram hover
+          &:has(.fa-telegram):hover {
+            border-color: #0088cc;
+            box-shadow: 0 0 20px rgba(0, 136, 204, 0.4);
+          }
+
+          // LinkedIn hover
+          &:has(.fa-linkedin):hover {
+            border-color: #0077b5;
+            box-shadow: 0 0 20px rgba(0, 119, 181, 0.4);
+          }
+
+          // Email hover
+          &:has(.fa-envelope):hover {
+            border-color: #ea4335;
+            box-shadow: 0 0 20px rgba(234, 67, 53, 0.4);
+          }
+
+          // WhatsApp hover
+          &:has(.fa-whatsapp):hover {
+            border-color: #25d366;
+            box-shadow: 0 0 20px rgba(37, 211, 102, 0.4);
+          }
+        }
+      }
+    }
+  }
+
+  // Animations
+  @keyframes rotate {
+    from {
+      transform: translate(-50%, -50%) rotate(0deg);
+    }
+    to {
+      transform: translate(-50%, -50%) rotate(360deg);
+    }
+  }
+
+  @keyframes pulse {
+    0%,
+    100% {
+      opacity: 0.6;
+    }
+    50% {
+      opacity: 1;
+    }
+  }
+
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes orbit-rotate {
+    from {
+      transform: translate(-50%, -50%) rotate(0deg);
+    }
+    to {
+      transform: translate(-50%, -50%) rotate(360deg);
+    }
+  }
+
+  @keyframes orbit-float {
+    0%,
+    100% {
+      transform: rotate(var(--angle)) translateY(-50%) translateY(0px);
+    }
+    50% {
+      transform: rotate(var(--angle)) translateY(-50%) translateY(-10px);
+    }
+  }
+
+  @keyframes counter-rotate {
+    from {
+      transform: translateY(var(--height)) rotate(0deg);
+    }
+    to {
+      transform: translateY(var(--height)) rotate(-360deg);
+    }
+  }
+
+  .hero-text {
+    animation: fadeInUp 0.8s ease-out;
+  }
+
+  .hero-image {
+    animation: fadeInUp 0.8s ease-out 0.2s both;
+  }
+
+  .social-toolbar {
+    animation: fadeInUp 0.8s ease-out 0.4s both;
+  }
+
+  .side-projects-section {
+    animation: fadeInUp 0.8s ease-out 0.6s both;
+  }
+
+  // Responsive Design
+  @media (max-width: 1024px) {
+    .hero-content {
+      max-width: 900px;
+      gap: 3rem;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .hero-section {
+      // padding: 1rem;
+    }
+
+    .hero-content {
+      // padding: 1rem;
+    }
+  }
+
+  // Contact Section
+  .contact-section {
+    position: relative;
+    z-index: 10;
+    overflow: hidden;
+    transform-style: preserve-3d;
+    will-change: transform;
+    margin-top: 0;
+
+    @media (max-width: 768px) {
+      margin-top: 0;
+      padding: 3rem 0;
+    }
+
+    .background-video {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: -2;
+    }
+
+    .overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(
+        354deg,
+        rgb(0 0 0 / 30%) 0%,
+        rgb(0 0 0 / 20%) 50%,
+        rgb(0 0 0 / 40%) 100%
+      );
+      z-index: -1;
+    }
+
+    .contact-content {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 4rem 2rem;
+      z-index: 1;
+      min-height: 100vh;
+
+      @media (max-width: 768px) {
+        padding: 2rem 1rem;
+        min-height: auto;
+      }
+    }
+
+    .contact-text {
+      @include flex-center;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      max-width: 600px;
+
+      .contact-title {
+        font-size: clamp(2.5rem, 5vw, 3.5rem);
+        font-weight: 700;
+        color: $white;
+        margin-bottom: 1rem;
+        background: $primary-gradient;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+
+      .contact-subtitle {
+        font-size: clamp(1rem, 2vw, 1.2rem);
+        font-weight: 300;
+        color: rgba(255, 255, 255, 0.8);
+        margin-bottom: 3rem;
+        line-height: 1.6;
+        max-width: 500px;
+      }
+
+      .contact-profile {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1.5rem;
+        margin-bottom: 2rem;
+
+        .profile-container {
+          position: relative;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+
+        .contact-profile-photo {
+          width: 200px;
+          height: 200px;
+          border-radius: 50%;
+          object-fit: cover;
+          border: 4px solid $primary-color;
+          box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+          transition: all 0.3s ease;
+          position: relative;
+          z-index: 2;
+
+          @media (max-width: 768px) {
+            width: 180px;
+            height: 180px;
+          }
+
+          @media (max-width: 480px) {
+            width: 180px;
+            height: 180px;
+          }
+
+          &:hover {
+            transform: scale(1.05);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+          }
+        }
+
+        .social-orbit {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          width: 0px;
+          height: 0px;
+          animation: orbit-rotate 30s linear infinite;
+          z-index: 9999;
+
+          @media (max-width: 768px) {
+            width: 0px;
+            height: 0px;
+          }
+
+          @media (max-width: 480px) {
+            width: 0px;
+            height: 0px;
+          }
+
+          .orbit-icon {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0px;
+            height: 359px;
+            transform-origin: 0 0;
+            transform: rotate(var(--angle)) translateY(-50%);
+            animation: orbit-float 4s ease-in-out infinite;
+            animation-delay: calc(var(--angle) * -0.1s);
+            z-index: 10000;
+
+            @media (max-width: 768px) {
+              width: 0px;
+              height: 296px;
+            }
+
+            @media (max-width: 480px) {
+              width: 0px;
+              height: 296px;
+            }
+
+            .social-orbit-link {
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              width: 50px;
+              height: 50px;
+              text-decoration: none;
+              transition: all 0.3s ease;
+              // filter: blur(1px);
+              transform: translateY(var(--height));
+              animation: counter-rotate 30s linear infinite;
+              z-index: 10001;
+              border-radius: 50%;
+              backdrop-filter: blur(10px);
+              border: 2px solid rgba(255, 255, 255, 0.1);
+              box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+
+              @media (max-width: 768px) {
+                width: 40px;
+                height: 40px;
+              }
+
+              @media (max-width: 480px) {
+                width: 35px;
+                height: 35px;
+              }
+
+              i {
+                font-size: 1.5rem;
+                transition: all 0.3s ease;
+
+                @media (max-width: 768px) {
+                  font-size: 1.2rem;
+                }
+
+                @media (max-width: 480px) {
+                  font-size: 1rem;
+                }
+              }
+
+              &:hover {
+                filter: blur(0px);
+                transform: translateY(var(--height)) scale(1.3);
+              }
+
+              // GitHub
+              &.github {
+                background: rgba(51, 51, 51, 0.2);
+                border-color: rgba(51, 51, 51, 0.3);
+                i {
+                  color: #333;
+                }
+                &:hover {
+                  background: rgba(51, 51, 51, 0.3);
+                  border-color: rgba(51, 51, 51, 0.5);
+                  i {
+                    color: #555;
+                  }
+                }
+              }
+
+              // Telegram
+              &.telegram {
+                background: rgba(0, 136, 204, 0.2);
+                border-color: rgba(0, 136, 204, 0.3);
+                i {
+                  color: #0088cc;
+                }
+                &:hover {
+                  background: rgba(0, 136, 204, 0.3);
+                  border-color: rgba(0, 136, 204, 0.5);
+                  i {
+                    color: #00a8e6;
+                  }
+                }
+              }
+
+              // LinkedIn
+              &.linkedin {
+                background: rgba(0, 119, 181, 0.2);
+                border-color: rgba(0, 119, 181, 0.3);
+                i {
+                  color: #0077b5;
+                }
+                &:hover {
+                  background: rgba(0, 119, 181, 0.3);
+                  border-color: rgba(0, 119, 181, 0.5);
+                  i {
+                    color: #0099d4;
+                  }
+                }
+              }
+
+              // Email
+              &.email {
+                background: rgba(234, 67, 53, 0.2);
+                border-color: rgba(234, 67, 53, 0.3);
+                i {
+                  color: #ea4335;
+                }
+                &:hover {
+                  background: rgba(234, 67, 53, 0.3);
+                  border-color: rgba(234, 67, 53, 0.5);
+                  i {
+                    color: #f44336;
+                  }
+                }
+              }
+
+              // WhatsApp
+              &.whatsapp {
+                background: rgba(37, 211, 102, 0.2);
+                border-color: rgba(37, 211, 102, 0.3);
+                i {
+                  color: #25d366;
+                }
+                &:hover {
+                  background: rgba(37, 211, 102, 0.3);
+                  border-color: rgba(37, 211, 102, 0.5);
+                  i {
+                    color: #4caf50;
+                  }
+                }
+              }
+
+              // YouTube
+              &.youtube {
+                background: rgba(255, 0, 0, 0.2);
+                border-color: rgba(255, 0, 0, 0.3);
+                i {
+                  color: #ff0000;
+                }
+                &:hover {
+                  background: rgba(255, 0, 0, 0.3);
+                  border-color: rgba(255, 0, 0, 0.5);
+                  i {
+                    color: #ff4444;
+                  }
+                }
+              }
+            }
+          }
+        }
+
+        .contact-info {
+          margin-top: 2rem;
+          .contact-name {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 0.5rem;
+
+            h3 {
+              font-size: clamp(1.5rem, 3vw, 2rem);
+              font-weight: 700;
+              color: $white;
+              margin: 0;
+            }
+
+            .verified-badge {
+              font-size: 1.2rem;
+              color: #4caf50;
+              filter: drop-shadow(0 0 5px rgba(76, 175, 80, 0.5));
+            }
+          }
+
+          .contact-role {
+            font-size: clamp(1rem, 2vw, 1.25rem);
+            color: rgba(255, 255, 255, 0.8);
+            font-weight: 300;
+            margin: 0;
+          }
+        }
+      }
+
+      .contact-social {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+        gap: 1rem;
+        margin-top: 2rem;
+        width: 100%;
+        max-width: 500px;
+
+        @media (max-width: 768px) {
+          grid-template-columns: repeat(2, 1fr);
+          gap: 0.75rem;
+        }
+
+        @media (max-width: 480px) {
+          grid-template-columns: -1fr;
+        }
+
+        .social-link {
+          display: flex;
+          align-items: center;
+          gap: 0.5rem;
+          padding: 0.75rem 1rem;
+          background: rgba(255, 255, 255, 0.1);
+          backdrop-filter: blur(10px);
+          border: 1px solid rgba(255, 255, 255, 0.2);
+          border-radius: 15px;
+          font-size: 1rem;
+          color: $white;
+          text-decoration: none;
+          transition: all 0.3s ease;
+          min-width: 120px;
+          justify-content: center;
+
+          @media (max-width: 768px) {
+            font-size: 0.9rem;
+            min-width: auto;
+            padding: 0.6rem 0.8rem;
+          }
+
+          i {
+            font-size: 1.2rem;
+            color: $primary-color;
+            transition: all 0.3s ease;
+          }
+
+          span {
+            font-weight: 500;
+          }
+
+          &:hover {
+            background: rgba(107, 186, 255, 0.2);
+            border-color: $primary-color;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(107, 186, 255, 0.3);
+
+            i {
+              transform: scale(1.1);
+            }
+          }
+        }
+      }
+    }
   }
 </style>
+
+<script>
+  // Smooth parallax effect with requestAnimationFrame
+  let ticking = false;
+
+  function updateParallax() {
+    // Check if device is mobile
+    const isMobile = window.innerWidth <= 768;
+
+    if (isMobile) {
+      // Disable parallax and blur effects on mobile
+      const parallax = document.querySelector(
+        ".parallax-section"
+      ) as HTMLElement;
+      if (parallax) {
+        parallax.style.filter = "blur(0px)";
+      }
+      ticking = false;
+      return;
+    }
+
+    const scrolled = window.pageYOffset;
+    const parallax = document.querySelector(".parallax-section") as HTMLElement;
+
+    if (parallax) {
+      // Calculate blur effect with smoother transition
+      const windowHeight = window.innerHeight;
+      const blurStart = windowHeight * 0.2; // Start blur earlier
+      const blurEnd = windowHeight * 0.8; // End blur earlier
+
+      if (scrolled > blurStart) {
+        const blurProgress = Math.min(
+          1,
+          (scrolled - blurStart) / (blurEnd - blurStart)
+        );
+        // Use ease-out function for smoother blur
+        const easedProgress = 1 - Math.pow(1 - blurProgress, 3);
+        const blurValue = easedProgress * 8; // Reduced max blur
+        parallax.style.filter = `blur(${blurValue}px)`;
+      } else {
+        parallax.style.filter = "blur(0px)";
+      }
+    }
+
+    ticking = false;
+  }
+
+  function requestTick() {
+    if (!ticking) {
+      requestAnimationFrame(updateParallax);
+      ticking = true;
+    }
+  }
+
+  // Use passive listener for better performance
+  window.addEventListener("scroll", requestTick, { passive: true });
+
+  // Handle resize events to enable/disable effects based on screen size
+  window.addEventListener("resize", () => {
+    const isMobile = window.innerWidth <= 768;
+    const parallax = document.querySelector(".parallax-section") as HTMLElement;
+
+    if (isMobile && parallax) {
+      parallax.style.filter = "blur(0px)";
+    }
+  });
+
+  // Hide social toolbar when contact content is visible
+  function toggleSocialToolbar() {
+    const socialToolbar = document.querySelector(
+      ".social-toolbar"
+    ) as HTMLElement;
+    const contactContent = document.querySelector(
+      ".contact-content"
+    ) as HTMLElement;
+
+    if (socialToolbar && contactContent) {
+      const contactRect = contactContent.getBoundingClientRect();
+      const windowHeight = window.innerHeight;
+
+      // Check if contact content is visible in viewport
+      // Hide toolbar when contact content is visible (top is above bottom of viewport and bottom is below top of viewport)
+      const isContactContentVisible =
+        contactRect.top < windowHeight && contactRect.bottom > 0;
+
+      // Debug log
+      // console.log(
+      //   "Contact content visible:",
+      //   isContactContentVisible,
+      //   "Top:",
+      //   contactRect.top,
+      //   "Bottom:",
+      //   contactRect.bottom,
+      //   "Window height:",
+      //   windowHeight
+      // );
+
+      if (isContactContentVisible) {
+        socialToolbar.classList.add("hidden");
+      } else {
+        socialToolbar.classList.remove("hidden");
+      }
+    }
+  }
+
+  // Add scroll listener for social toolbar toggle
+  window.addEventListener("scroll", toggleSocialToolbar, { passive: true });
+
+  // Execute once on load to set initial state
+  toggleSocialToolbar();
+
+  /* -- Smooth glow effect -- */
+
+  const blob = document.getElementById("blob");
+  const myJourneySection = document.querySelector("body");
+
+  /* -- Timeline animations -- */
+
+  // Para aumentar a quantidade de progresso da animação pela altura que foi scrollada,
+  // altere o denominador da variável 'progress' (atualmente: (sectionHeight * progressFactor)).
+  // Quanto menor o valor de 'progressFactor', mais rápido a linha cresce; quanto maior, mais devagar.
+  const progressFactor = 1.0; // Altere este valor para controlar a velocidade do crescimento da linha
+  const mobileLineProgressFactor = 0.75; // Altere este valor para controlar a velocidade da linha no mobile
+
+  const timelineLine = document.querySelector(".timeline-line") as HTMLElement;
+  const timelineItems = document.querySelectorAll(".timeline-item");
+  const myJourneySectionElement = document.querySelector(
+    ".journey-timeline"
+  ) as HTMLElement;
+  const journeyTimelineElement = document.querySelector(
+    ".journey-timeline"
+  ) as HTMLElement;
+
+  // Controle para animação mobile
+  let mobileItemsAnimated = false;
+
+  function animateTimeline() {
+    const isMobile = window.innerWidth <= 768;
+
+    if (isMobile) {
+      animateTimelineMobile();
+    } else {
+      animateTimelineDesktop();
+    }
+  }
+
+  function animateTimelineDesktop() {
+    const sectionRect = myJourneySectionElement.getBoundingClientRect();
+    const windowHeight = window.innerHeight;
+
+    // Calcula o progresso do scroll na seção (0 = topo da seção na base da viewport, 1 = base da seção no topo da viewport)
+    const sectionTop = sectionRect.top;
+    const sectionHeight = sectionRect.height;
+    const sectionBottom = sectionRect.bottom;
+
+    // O progresso é 0 quando a seção começa a aparecer, 1 quando termina de sair da viewport
+    let progress = 0;
+    if (sectionBottom > 0 && sectionTop < windowHeight) {
+      // O progresso é baseado na fração da seção que já passou pela viewport
+      // progressFactor controla o quanto da altura da seção é necessário para a linha chegar a 100%
+      progress = Math.max(
+        0,
+        Math.min(
+          1,
+          (windowHeight - sectionTop) / (sectionHeight * progressFactor)
+        )
+      );
+    }
+
+    // Animar a linha: height proporcional ao progresso do scroll na seção
+    if (progress > 0 && progress <= 1) {
+      timelineLine.classList.add("animated");
+      timelineLine.style.height = `${progress * 100}%`;
+    } else if (progress > 1) {
+      timelineLine.classList.add("animated");
+      timelineLine.style.height = `100%`;
+    } else {
+      timelineLine.classList.remove("animated");
+      timelineLine.style.height = `0%`;
+    }
+
+    // Animar os items conforme a linha chega neles
+    timelineItems.forEach((item) => {
+      const itemRect = item.getBoundingClientRect();
+      // O item é considerado visível quando seu topo está dentro da viewport
+      if (itemRect.top < windowHeight * 0.85) {
+        item.classList.add("visible");
+      } else {
+        item.classList.remove("visible");
+      }
+    });
+  }
+
+  function animateTimelineMobile() {
+    const windowHeight = window.innerHeight;
+    const timelineRect = journeyTimelineElement.getBoundingClientRect();
+
+    // Animar a linha gradualmente no mobile
+    const timelineTop = timelineRect.top;
+    const timelineHeight = timelineRect.height;
+    const timelineBottom = timelineRect.bottom;
+
+    // Calcular progresso da timeline na viewport
+    let lineProgress = 0;
+    if (timelineBottom > 0 && timelineTop < windowHeight) {
+      lineProgress = Math.max(
+        0,
+        Math.min(
+          1,
+          (windowHeight - timelineTop) /
+            ((windowHeight + timelineHeight) * mobileLineProgressFactor)
+        )
+      );
+    }
+
+    // Aplicar altura gradual baseada no progresso
+    if (lineProgress > 0) {
+      timelineLine.classList.add("animated");
+      timelineLine.style.height = `${lineProgress * 100}%`;
+    } else {
+      timelineLine.classList.remove("animated");
+      timelineLine.style.height = "0%";
+    }
+
+    // Animar apenas os cards no mobile baseado na altura do dispositivo
+    timelineItems.forEach((item, index) => {
+      const itemRect = item.getBoundingClientRect();
+      const deviceHeight = window.innerHeight;
+
+      // Card aparece quando chega na parte superior da tela
+      // Usar 80% da altura do dispositivo como threshold
+      const threshold = deviceHeight * 0.8;
+
+      if (itemRect.top < threshold) {
+        item.classList.add("visible");
+      } else {
+        item.classList.remove("visible");
+      }
+    });
+  }
+
+  // Adicionar listener de scroll para animações da timeline
+  window.addEventListener("scroll", animateTimeline, { passive: true });
+
+  // Executar uma vez no carregamento para verificar se já está visível
+  animateTimeline();
+
+  // Fallback para mobile: garantir que elementos sejam visíveis após um delay
+  setTimeout(() => {
+    const isMobile = window.innerWidth <= 768;
+    if (isMobile) {
+      // Garantir que a linha seja visível
+      if (timelineLine && !timelineLine.classList.contains("animated")) {
+        timelineLine.classList.add("animated");
+        timelineLine.style.height = "100%";
+      }
+
+      // Garantir que todos os items sejam visíveis
+      timelineItems.forEach((item) => {
+        if (!item.classList.contains("visible")) {
+          item.classList.add("visible");
+        }
+      });
+    }
+  }, 3000);
+
+  // Permitir que o blob siga o mouse mesmo quando parado e também ao usar o scroll
+  let blobAnimationFrame: number | null = null;
+  let lastPointer: { x: number; y: number } | null = null;
+
+  function updateBlobPosition(x: number, y: number) {
+    if (!blob || !myJourneySection) return;
+
+    const rect = myJourneySection.getBoundingClientRect();
+    const relativeX = x - rect.left;
+    const relativeY = y - rect.top;
+
+    blob.style.left = `${relativeX}px`;
+    blob.style.top = `${relativeY}px`;
+  }
+
+  function scheduleBlobUpdate(x: number, y: number) {
+    if (blobAnimationFrame !== null) {
+      cancelAnimationFrame(blobAnimationFrame);
+    }
+    blobAnimationFrame = requestAnimationFrame(() => {
+      updateBlobPosition(x, y);
+      blobAnimationFrame = null;
+    });
+  }
+
+  window.onpointermove = (event) => {
+    lastPointer = { x: event.clientX, y: event.clientY };
+    scheduleBlobUpdate(event.clientX, event.clientY);
+  };
+
+  window.addEventListener(
+    "scroll",
+    () => {
+      if (lastPointer) {
+        scheduleBlobUpdate(lastPointer.x, lastPointer.y);
+      }
+    },
+    { passive: true }
+  );
+
+  // Opcional: garantir que o blob esteja posicionado corretamente ao carregar a página
+  window.addEventListener("DOMContentLoaded", () => {
+    if (lastPointer) {
+      scheduleBlobUpdate(lastPointer.x, lastPointer.y);
+    }
+  });
+
+  // Smooth scroll function for navigation buttons
+  function scrollToSection(sectionId: string) {
+    const section = document.getElementById(sectionId);
+    if (section) {
+      section.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
+    }
+  }
+
+  // Make function globally available
+  (window as any).scrollToSection = scrollToSection;
+</script>

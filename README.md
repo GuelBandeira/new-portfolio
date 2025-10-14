@@ -1,48 +1,96 @@
-# Astro Starter Kit: Basics
+<div align="center">
 
-```sh
-npm create astro@latest -- --template basics
-```
+# Personal Portfolio (Astro)
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/basics)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/basics)
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/basics/devcontainer.json)
+Elegant, fast, and SEO-friendly personal portfolio built with Astro. Includes project highlights, career journey, and rich media backgrounds.
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+</div>
 
-![just-the-basics](https://github.com/withastro/astro/assets/2244813/a0a5533c-a856-4198-8470-2d67b1d7c554)
+---
 
-## 🚀 Project Structure
+### Live
 
-Inside of your Astro project, you'll see the following folders and files:
+- Production: `https://guelbandeira.github.io/new-portfolio` 
+
+### Tech Stack
+
+- Astro 5 (static output)
+- CSS for styling
+- Javascript (optional, for specific DOM effects)
+- Deployed to GitHub Pages (via GitHub Actions or `gh-pages`)
+
+## Features
+
+- **Blazing fast** static site with Astro
+- **Responsive** design and modern UI
+- **Project showcase** with `ProjectCard`
+- **Career timeline** with `JourneyCard`
+- **Video/image backgrounds** served from `public/`
+- **Easy deployment** to GitHub Pages
+
+## Project Structure
 
 ```text
 /
-├── public/
-│   └── favicon.svg
+├── public/                 # Static assets (served as-is)
+│   ├── background_*.mp4
+│   ├── favicon.svg
+│   └── logo.webp
 ├── src/
+│   ├── assets/
+│   │   ├── img/            # Project images
+│   │   └── fonts/          # Fonts (if any)
+│   ├── components/
+│   │   ├── Welcome.astro
+│   │   ├── ProjectCard.astro
+│   │   └── JourneyCard.astro
 │   ├── layouts/
 │   │   └── Layout.astro
 │   └── pages/
 │       └── index.astro
-└── package.json
+├── .github/workflows/deploy.yml  # GitHub Pages workflow (optional)
+├── astro.config.mjs
+├── package.json
+└── README.md
 ```
 
-To learn more about the folder structure of an Astro project, refer to [our guide on project structure](https://docs.astro.build/en/basics/project-structure/).
+## Getting Started
 
-## 🧞 Commands
+### Install
 
-All commands are run from the root of the project, from a terminal:
+```bash
+npm install
+```
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+### Development
 
-## 👀 Want to learn more?
+```bash
+npm run dev
+```
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+Local dev server runs at `http://localhost:4321` by default.
+
+### Build
+
+```bash
+npm run build
+```
+
+## Scripts
+
+
+```text
+npm run dev       # start local development server
+npm run build     # build site to ./dist
+npm run preview   # preview the production build locally
+npm run deploy    # build + publish dist/ to GitHub Pages
+```
+
+## License
+
+This project is licensed under the MIT License. See `LICENSE` for details.
+
+## Acknowledgements
+
+- Built with [Astro](https://docs.astro.build)
+- Deployed with GitHub Pages

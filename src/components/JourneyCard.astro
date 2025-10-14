@@ -1,0 +1,207 @@
+---
+export interface Props {
+  jobTitle: string;
+  companyName: string;
+  jobPeriod: string;
+  responsibilities: string[];
+  position: "left" | "right";
+}
+
+const { jobTitle, companyName, jobPeriod, responsibilities, position } =
+  Astro.props;
+---
+
+<div class={`timeline-item ${position}`}>
+  <div class="timeline-content">
+    <div class={`timeline-branch ${position}-branch`}></div>
+    <div class="timeline-card">
+      <h3 class="job-title">{jobTitle}</h3>
+      <h4 class="company-name">{companyName}</h4>
+      <p class="job-period">{jobPeriod}</p>
+      <ul class="job-responsibilities">
+        {
+          responsibilities.map((responsibility) => (
+            <li set:html={responsibility} />
+          ))
+        }
+      </ul>
+    </div>
+  </div>
+</div>
+
+<style lang="scss">
+  .timeline-item {
+    position: relative;
+    margin-bottom: 4rem;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s ease-out;
+
+    &.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (max-width: 768px) {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.6s ease-out;
+
+      &.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    &:hover {
+      .timeline-card {
+        transform: translateY(-5px);
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+        border-color: #6bbaff;
+      }
+
+      &.left .timeline-branch {
+        top: -38px;
+      }
+
+      &.right .timeline-branch {
+        top: -37px;
+      }
+    }
+
+    &.left {
+      .timeline-content {
+        margin-right: 50%;
+        padding-right: 1rem;
+        position: relative;
+
+        @media (max-width: 768px) {
+          margin-right: 0;
+          padding-right: 0;
+          padding-left: 3rem;
+        }
+      }
+
+      .timeline-branch {
+        position: absolute;
+        left: 97%;
+        top: -33px;
+        width: 30px;
+        height: 30px;
+        border-left: 3px solid #6bbaff;
+        border-top: 3px solid #6bbaff;
+        border-top-left-radius: 10px;
+        transform: translateX(-50%);
+        transition: all 0.3s ease;
+
+        @media (max-width: 768px) {
+          width: 40px;
+          left: 22px;
+          top: -27px;
+          transform: scaleX(-1);
+          height: 30px;
+        }
+      }
+    }
+
+    &.right {
+      .timeline-content {
+        margin-left: 50%;
+        padding-left: 1rem;
+        position: relative;
+
+        @media (max-width: 768px) {
+          margin-left: 0;
+          padding-left: 3rem;
+        }
+      }
+
+      .timeline-branch {
+        position: absolute;
+        left: 3%;
+        top: -32px;
+        width: 30px;
+        height: 30px;
+        border-right: 3px solid #6bbaff;
+        border-top: 3px solid #6bbaff;
+        border-top-right-radius: 10px;
+        transform: translateX(-50%);
+        transition: all 0.3s ease;
+
+        @media (max-width: 768px) {
+          left: 43px;
+          width: 40px;
+          top: -27px;
+          height: 30px;
+        }
+      }
+    }
+  }
+
+  .timeline-card {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 20px;
+    padding: 2rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+
+    @media (max-width: 768px) {
+      padding: 1.5rem;
+    }
+
+    .job-title {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #ffffff;
+      margin-bottom: 0.5rem;
+      background: linear-gradient(90deg, #6bbaff 0%, #037de9 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .company-name {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: rgba(255, 255, 255, 0.9);
+      margin-bottom: 0.75rem;
+      opacity: 0.8;
+    }
+
+    .job-period {
+      font-size: 1rem;
+      color: #6bbaff;
+      font-weight: 600;
+      margin-bottom: 1.5rem;
+      opacity: 0.9;
+    }
+
+    .job-responsibilities {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      font-size: 12px;
+
+      li {
+        color: rgba(255, 255, 255, 0.8);
+        line-height: 1.6;
+        margin-bottom: 0.75rem;
+        padding-left: 1.5rem;
+        position: relative;
+
+        &:before {
+          content: "▸";
+          position: absolute;
+          left: 0;
+          color: #6bbaff;
+          font-weight: bold;
+        }
+
+        &:last-child {
+          margin-bottom: 0;
+        }
+      }
+    }
+  }
+</style>

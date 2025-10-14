@@ -1,0 +1,276 @@
+---
+export interface Props {
+  title: string;
+  description: string;
+  technologies: string[];
+  image: string;
+  imageAlt: string;
+  link: string;
+}
+
+const { title, description, technologies, image, imageAlt, link } = Astro.props;
+
+// Function to get technology icons
+function getTechIcon(tech: string): string {
+  const iconMap: Record<string, string> = {
+    React: "fab fa-react",
+    "Node.js": "fab fa-node-js",
+    MongoDB: "fas fa-database",
+    "Next.js": "fab fa-react",
+    Blockchain: "fas fa-link",
+    Web3: "fas fa-cube",
+    HTML5: "fab fa-html5",
+    CSS: "fab fa-css3-alt",
+    JavaScript: "fab fa-js-square",
+    PHP: "fab fa-php",
+    Laravel: "fas fa-fire",
+    Livewire: "fas fa-bolt",
+    "Tailwind CSS": "fab fa-css3-alt",
+    MySQL: "fas fa-database",
+    PostgreSQL: "fas fa-database",
+    Git: "fab fa-git-alt",
+  };
+
+  return iconMap[tech] || "fas fa-code";
+}
+---
+
+<div class="project-item">
+  <div class="project-content-card">
+    <h3 class="project-title">{title}</h3>
+    <div class="project-image-mobile">
+      <img src={image} alt={imageAlt} class="project-img-mobile" />
+    </div>
+    <div class="project-description-mobile">
+      <p class="project-description">
+        {description}
+      </p>
+    </div>
+    <div class="project-tech">
+      {
+        technologies.map((tech) => {
+          const icon = getTechIcon(tech);
+          return (
+            <span class="tech-tag">
+              <i class={icon} />
+              {tech}
+            </span>
+          );
+        })
+      }
+    </div>
+    <a href={link} target="_blank" class="project-link">
+      <i class="fas fa-external-link-alt"></i>
+      Visit Me
+    </a>
+  </div>
+  <div class="project-image-card">
+    <img src={image} alt={imageAlt} class="project-img" />
+  </div>
+</div>
+
+<style lang="scss">
+  .project-item {
+    position: relative;
+    width: 100%;
+    min-height: 400px !important;
+    margin-bottom: 4rem;
+
+    @media (max-width: 768px) {
+      min-height: auto;
+      margin-bottom: 3rem;
+    }
+
+    .project-content-card {
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 20px;
+      padding: 2.5rem;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      transition: all 0.3s ease;
+      min-height: 380px;
+
+      @media (min-width: 769px) {
+        max-width: 730px;
+        width: 100%;
+      }
+      z-index: 2;
+      position: relative;
+
+      @media (max-width: 768px) {
+        padding: 2rem;
+        order: 1;
+        display: flex;
+        flex-direction: column;
+      }
+
+      &:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+        border-color: #6bbaff;
+      }
+
+      .project-title {
+        font-size: 1.75rem;
+        font-weight: 600;
+        color: #ffffff;
+        margin-bottom: 1rem;
+        max-width: 420px;
+
+        @media (max-width: 768px) {
+          font-size: 1.5rem;
+          text-align: center;
+          max-width: 100%;
+          order: 2;
+        }
+      }
+
+      .project-image-mobile {
+        display: none;
+
+        @media (max-width: 768px) {
+          display: block;
+          order: 1;
+          margin: 1.5rem 0;
+        }
+
+        .project-img-mobile {
+          width: 100%;
+          height: 200px;
+          object-fit: cover;
+          border-radius: 15px;
+          transition: transform 0.3s ease;
+
+          &:hover {
+            transform: scale(1.02);
+          }
+        }
+      }
+
+      .project-description-mobile {
+        @media (max-width: 768px) {
+          order: 3;
+        }
+      }
+
+      .project-description {
+        color: rgba(255, 255, 255, 0.8);
+        line-height: 1.6;
+        margin-bottom: 1.5rem;
+        font-size: 1rem;
+        margin-right: 21rem;
+
+        max-width: 420px;
+
+        @media (max-width: 768px) {
+          text-align: center;
+          margin-right: 0;
+          max-width: 100%;
+        }
+      }
+
+      .project-tech {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        max-width: 450px;
+        margin-bottom: 1.5rem;
+
+        @media (max-width: 1024px) {
+          max-width: none;
+        }
+
+        @media (max-width: 768px) {
+          justify-content: center;
+          order: 4;
+          max-width: none;
+        }
+
+        .tech-tag {
+          background: rgba(107, 186, 255, 0.2);
+          color: #6bbaff;
+          padding: 0.25rem 0.75rem;
+          border-radius: 20px;
+          font-size: 0.8rem;
+          font-weight: 500;
+          border: 1px solid rgba(107, 186, 255, 0.3);
+          display: inline-flex;
+          align-items: center;
+          gap: 0.5rem;
+
+          i {
+            font-size: 0.9rem;
+            color: #6bbaff;
+          }
+        }
+      }
+
+      .project-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        background: linear-gradient(90deg, #6bbaff 0%, #037de9 100%);
+        color: #ffffff;
+        text-decoration: none;
+        padding: 0.75rem 1.5rem;
+        border-radius: 25px;
+        font-size: 0.9rem;
+        font-weight: 600;
+        transition: all 0.3s ease;
+        border: none;
+        cursor: pointer;
+
+        @media (max-width: 768px) {
+          justify-content: center;
+          order: 5;
+        }
+
+        &:hover {
+          transform: translateY(-2px);
+          box-shadow: 0 6px 20px rgba(107, 186, 255, 0.4);
+          text-decoration: none;
+          color: #ffffff;
+        }
+
+        i {
+          font-size: 0.8rem;
+        }
+      }
+    }
+
+    .project-image-card {
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 20px;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      transition: all 0.3s ease;
+      position: absolute;
+      top: 0;
+      right: 0;
+      margin-top: 25px;
+      width: 730px;
+      height: 390px;
+      z-index: 9999;
+
+      @media (max-width: 768px) {
+        display: none;
+      }
+
+      &:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+        border-color: #6bbaff;
+      }
+
+      .project-img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.3s ease;
+
+        &:hover {
+          transform: scale(1.05);
+        }
+      }
+    }
+  }
+</style>
