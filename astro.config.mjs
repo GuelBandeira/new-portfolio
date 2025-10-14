@@ -1,8 +1,13 @@
 // @ts-check
+// @ts-check
 import { defineConfig } from 'astro/config';
 
 export default defineConfig({
    site: 'https://guelbandeira.github.io',
-   base: '',
-   output: 'static'
+   base: '', // no subdirectory
+   output: 'static',
+   build: {
+      assets: '_astro',
+      assetsPrefix: './',
+   },
 });
