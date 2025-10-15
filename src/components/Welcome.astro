@@ -1,9 +1,9 @@
 ---
 import profileImage from "../assets/proifle.jpg";
-import alreadyWatched from "../assets/img/already_watched.png";
-import myNftCar from "../assets/img/my_nft_car.png";
-import lccAmbiental from "../assets/img/lcc_ambiental.png";
-import etpcEsports from "../assets/img/etpc_esports.png";
+import alreadyWatched from "../assets/img/already_watched.webp";
+import myNftCar from "../assets/img/my_nft_car.webp";
+import lccAmbiental from "../assets/img/lcc_ambiental.webp";
+import etpcEsports from "../assets/img/etpc_esports.webp";
 import ProjectCard from "./ProjectCard.astro";
 import JourneyCard from "./JourneyCard.astro";
 ---
@@ -52,7 +52,7 @@ https://cdn.jsdelivr.net/npm/typeface-poppins@1.1.13/index.min.css
 <section class="hero-section parallax-section">
   <!-- Background Video -->
   <video class="background-video" autoplay muted loop playsinline>
-    <source src="/test.mp4" type="video/mp4" />
+    <source src={`${import.meta.env.BASE_URL}test.mp4`} type="video/mp4" />
   </video>
 
   <!-- Overlay for better text readability -->
@@ -306,7 +306,7 @@ https://cdn.jsdelivr.net/npm/typeface-poppins@1.1.13/index.min.css
 <section id="contact" class="contact-section parallax-section">
   <!-- Background Video -->
   <video class="background-video" autoplay muted loop playsinline>
-    <source src="/test.mp4" type="video/mp4" />
+    <source src={`${import.meta.env.BASE_URL}test.mp4`} type="video/mp4" />
   </video>
 
   <!-- Overlay for better text readability -->
