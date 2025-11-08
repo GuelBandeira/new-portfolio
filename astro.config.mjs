@@ -10,7 +10,7 @@ export default defineConfig({
   output: 'static',
 
   build: {
-     assets: '_astro'
+    assets: '_astro'
   },
 
   integrations: [icon()],

@@ -205,18 +205,8 @@ import JourneyCard from "./JourneyCard.astro";
 
 <!-- My Journey Section -->
 <section id="projects" class="my-journey-section">
-  <div id="blob"></div>
-  <div id="blur"></div>
-  <svg
-    class="v-transition-svg"
-    xmlns="http://www.w3.org/2000/svg"
-    viewBox="0 0 1440 320"
-  >
-    <path
-      d="M0,128L720,288L1440,128L1440,0L720,0L0,0Z"
-      fill="#010c23"
-      fill-opacity="1"></path>
-  </svg>
+  <div id="blob" class="low-perf"></div>
+  <div id="blur" class="low-perf"></div>
 
   <div class="container">
     <!-- <div class="section-header">
@@ -288,6 +278,18 @@ import JourneyCard from "./JourneyCard.astro";
     </div> -->
     <div class="section-header">
       <h2 class="section-title">Side Projects</h2>
+      <span
+        class="line"
+        style="width: 90px !important;
+    background: linear-gradient(90deg, #6bbaff 0%, #037de9 100%);
+    border-radius: 50px;
+    display: inline-flex
+;
+    text-align: center;
+    height: 10px;
+    margin-right: 270px;
+    justify-content: center;"
+      ></span>
       <p class="section-subtitle"></p>
     </div>
 
@@ -1511,10 +1513,11 @@ import JourneyCard from "./JourneyCard.astro";
       font-weight: 700;
       color: $white;
       margin-bottom: 1rem;
-      background: $primary-gradient;
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
+
+      // background: $primary-gradient;
+      // -webkit-background-clip: text;
+      // -webkit-text-fill-color: transparent;
+      // background-clip: text;
     }
 
     .section-subtitle {
@@ -1639,22 +1642,18 @@ import JourneyCard from "./JourneyCard.astro";
 
   // Reduced motion and low performance fallbacks
 
-  :root.low-perf *,
-  body.low-perf * {
-    // transition: none !important;
-  }
-  :root.low-perf .parallax-section {
+  .parallax-section {
     filter: none !important;
   }
-  :root.low-perf #blur {
+  #blur {
     backdrop-filter: none !important;
   }
 
   /* Low-perf fallback: emulate background blur by blurring the blob itself */
-  :root.low-perf #blur {
+  #blur {
     display: none !important;
   }
-  :root.low-perf #blob {
+  #blob {
     filter: blur(201px) saturate(120%);
     opacity: 0.7;
     transition: none !important;
@@ -2033,15 +2032,15 @@ import JourneyCard from "./JourneyCard.astro";
 
   // Contact Section
   .contact-section {
-    position: fixed;
-    margin-top: 200vh;
-    width: 100%;
+    position: relative;
+
+    background-image: url("");
+    z-index: 10;
     overflow: hidden;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: #010c23;
-    z-index: 1;
+    transform-style: preserve-3d;
+    will-change: transform;
+    margin-top: 0;
+
     @media (max-width: 768px) {
       margin-top: 0;
       padding: 3rem 0;
