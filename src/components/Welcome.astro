@@ -1,23 +1,30 @@
 ---
 import profileImage from "../assets/proifle.jpg";
+import profileImagePixelArt from "../assets/img/me_edited.png";
 import alreadyWatched from "../assets/img/already_watched.webp";
 import myNftCar from "../assets/img/my_nft_car.webp";
 import lccAmbiental from "../assets/img/lcc_ambiental.webp";
 import etpcEsports from "../assets/img/etpc_esports.webp";
 import ProjectCard from "./ProjectCard.astro";
 import JourneyCard from "./JourneyCard.astro";
----
+// import { icon } from "@fortawesome/fontawesome-svg-core";
+// import {
+//   faTelegram,
+//   faLinkedin,
+//   faWhatsapp,
+//   faYoutube,
+//   faGithub,
+// } from "@fortawesome/free-brands-svg-icons";
 
-<link
-  href="
-https://cdn.jsdelivr.net/npm/typeface-poppins@1.1.13/index.min.css
-"
-  rel="stylesheet"
-/>
-<link
-  rel="stylesheet"
-  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-/>
+// import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
+// const telegramIcon = icon(faTelegram).html;
+// const linkedinIcon = icon(faLinkedin).html;
+// const whatsappIcon = icon(faWhatsapp).html;
+// const youtubeIcon = icon(faYoutube).html;
+// const githubIcon = icon(faGithub).html;
+
+// const emailIcon = icon(faEnvelope).html;
+---
 
 <div class="social-toolbar">
   <ul class="social-icons">
@@ -51,7 +58,15 @@ https://cdn.jsdelivr.net/npm/typeface-poppins@1.1.13/index.min.css
 
 <section class="hero-section parallax-section">
   <!-- Background Video -->
-  <video class="background-video" autoplay muted loop playsinline>
+  <video
+    class="background-video"
+    autoplay
+    muted
+    loop
+    playsinline
+    preload="metadata"
+    poster={`${import.meta.env.BASE_URL}poster.png`}
+  >
     <source src={`${import.meta.env.BASE_URL}test.mp4`} type="video/mp4" />
   </video>
 
@@ -123,7 +138,21 @@ https://cdn.jsdelivr.net/npm/typeface-poppins@1.1.13/index.min.css
     </div>
 
     <div class="hero-image">
-      <img src={profileImage.src} alt="Profile Photo" class="profile-photo" />
+      <!-- <ul class="ag-glitch_list profile-photo-pixel-art">
+        <li class="ag-glitch_item"></li>
+        <li class="ag-glitch_item"></li>
+        <li class="ag-glitch_item"></li>
+        <li class="ag-glitch_item"></li>
+        <li class="ag-glitch_item"></li>
+      </ul> -->
+
+      <img
+        src={profileImage.src}
+        alt="Profile Photo"
+        class="profile-photo"
+        loading="lazy"
+        decoding="async"
+      />
 
       <!-- Circular Technology Lines -->
       <!-- <div class="tech-orbit">
@@ -190,7 +219,7 @@ https://cdn.jsdelivr.net/npm/typeface-poppins@1.1.13/index.min.css
   </svg>
 
   <div class="container">
-    <div class="section-header">
+    <!-- <div class="section-header">
       <h2 class="section-title">My Journey</h2>
       <p class="section-subtitle">
         "The only way to do great work is to love what you do" <br />
@@ -256,7 +285,7 @@ https://cdn.jsdelivr.net/npm/typeface-poppins@1.1.13/index.min.css
         ]}
         position="right"
       />
-    </div>
+    </div> -->
     <div class="section-header">
       <h2 class="section-title">Side Projects</h2>
       <p class="section-subtitle"></p>
@@ -305,7 +334,15 @@ https://cdn.jsdelivr.net/npm/typeface-poppins@1.1.13/index.min.css
 <!-- Contact Section -->
 <section id="contact" class="contact-section parallax-section">
   <!-- Background Video -->
-  <video class="background-video" autoplay muted loop playsinline>
+  <video
+    class="background-video"
+    autoplay
+    muted
+    loop
+    playsinline
+    preload="metadata"
+    poster={`${import.meta.env.BASE_URL}poster.png`}
+  >
     <source src={`${import.meta.env.BASE_URL}test.mp4`} type="video/mp4" />
   </video>
 
@@ -491,7 +528,7 @@ https://cdn.jsdelivr.net/npm/typeface-poppins@1.1.13/index.min.css
   .ag-glitch_item {
     background-color: transparent;
     background-blend-mode: normal;
-    background: url({profileImage.src}) no-repeat center;
+    background: url("../assets/img/me_edited.png") no-repeat center;
 
     position: absolute;
     top: 15%;
@@ -1115,7 +1152,7 @@ https://cdn.jsdelivr.net/npm/typeface-poppins@1.1.13/index.min.css
     position: relative;
     transform-style: preserve-3d;
     will-change: transform;
-    transition: filter 0.3s ease;
+    transition: none;
   }
 
   // Hero Section
@@ -1323,6 +1360,33 @@ https://cdn.jsdelivr.net/npm/typeface-poppins@1.1.13/index.min.css
         }
       }
 
+      .profile-photo-pixel-art {
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 4px solid $primary-color;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        transition: all 0.3s ease;
+        position: relative;
+        z-index: 2;
+
+        @media (max-width: 768px) {
+          width: 250px;
+          height: 250px;
+        }
+
+        @media (max-width: 480px) {
+          width: 200px;
+          height: 200px;
+        }
+
+        &:hover {
+          transform: scale(1.05);
+          box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+        }
+      }
+
       // Technology Orbit
       .tech-orbit {
         position: absolute;
@@ -1492,7 +1556,7 @@ https://cdn.jsdelivr.net/npm/typeface-poppins@1.1.13/index.min.css
       top: 50%;
       border-radius: 50%;
       background: linear-gradient(to right, #6bbaff, #037de9);
-      animation: rotate 20s infinite;
+      animation: rotate 1s infinite;
       opacity: 0.8;
       z-index: 1;
     }
@@ -1570,6 +1634,42 @@ https://cdn.jsdelivr.net/npm/typeface-poppins@1.1.13/index.min.css
         left: 20px;
         transform: none;
       }
+    }
+  }
+
+  // Reduced motion and low performance fallbacks
+
+  :root.low-perf *,
+  body.low-perf * {
+    // transition: none !important;
+  }
+  :root.low-perf .parallax-section {
+    filter: none !important;
+  }
+  :root.low-perf #blur {
+    backdrop-filter: none !important;
+  }
+
+  /* Low-perf fallback: emulate background blur by blurring the blob itself */
+  :root.low-perf #blur {
+    display: none !important;
+  }
+  :root.low-perf #blob {
+    filter: blur(201px) saturate(120%);
+    opacity: 0.7;
+    transition: none !important;
+  }
+  /* Keep subtle hover transitions in low-perf mode */
+  /* Fallback when backdrop-filter is not supported */
+  @supports not (
+    (-webkit-backdrop-filter: blur(1px)) or (backdrop-filter: blur(1px))
+  ) {
+    #blur {
+      display: none;
+    }
+    #blob {
+      filter: blur(60px) saturate(120%);
+      opacity: 0.7;
     }
   }
 
@@ -1933,13 +2033,15 @@ https://cdn.jsdelivr.net/npm/typeface-poppins@1.1.13/index.min.css
 
   // Contact Section
   .contact-section {
-    position: relative;
-    z-index: 10;
+    position: fixed;
+    margin-top: 200vh;
+    width: 100%;
     overflow: hidden;
-    transform-style: preserve-3d;
-    will-change: transform;
-    margin-top: 0;
-
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #010c23;
+    z-index: 1;
     @media (max-width: 768px) {
       margin-top: 0;
       padding: 3rem 0;
@@ -2334,71 +2436,109 @@ https://cdn.jsdelivr.net/npm/typeface-poppins@1.1.13/index.min.css
       }
     }
   }
+
+  /* Disable initial animations in hero area */
+  .hero-content {
+    animation: none !important;
+  }
+  .hero-text {
+    animation: none !important;
+  }
+  .hero-image {
+    animation: none !important;
+  }
 </style>
 
 <script is:inline>
   // Smooth parallax effect with requestAnimationFrame
-  let ticking = false;
 
-  function updateParallax() {
-    // Check if device is mobile
-    const isMobile = window.innerWidth <= 768;
+  document.documentElement.classList.add("low-perf");
+  document.body.classList.add("low-perf");
 
-    if (isMobile) {
-      // Disable parallax and blur effects on mobile
-      const parallax = document.querySelector(".parallax-section");
-      if (parallax) {
-        parallax.style.filter = "blur(0px)";
-      }
-      ticking = false;
-      return;
-    }
+  // let ticking = false;
+  // const prefersReducedMotion = window.matchMedia(
+  //   "(prefers-reduced-motion: reduce)"
+  // );
+  // let lowPerfDetected = false;
 
-    const scrolled = window.pageYOffset;
-    const parallax = document.querySelector(".parallax-section");
+  // function applyLowPerfMode() {
+  //   if (lowPerfDetected) return;
+  //   lowPerfDetected = true;
+  // }
+  // function applyReducedMotionMode() {
+  //   document.documentElement.classList.add("reduced-motion");
+  //   document.body.classList.add("reduced-motion");
+  //   document.querySelectorAll("video.background-video").forEach((v) => {
+  //     try {
+  //       v.pause();
+  //     } catch (_) {}
+  //     v.removeAttribute("autoplay");
+  //     v.style.display = "none";
+  //   });
+  // }
 
-    if (parallax) {
-      // Calculate blur effect with smoother transition
-      const windowHeight = window.innerHeight;
-      const blurStart = windowHeight * 0.2; // Start blur earlier
-      const blurEnd = windowHeight * 0.8; // End blur earlier
+  // function updateParallax() {
+  //   const parallax = document.querySelector(".parallax-section");
+  //   if (parallax) parallax.style.filter = "none";
+  //   ticking = false;
+  // }
 
-      if (scrolled > blurStart) {
-        const blurProgress = Math.min(
-          1,
-          (scrolled - blurStart) / (blurEnd - blurStart)
-        );
-        // Use ease-out function for smoother blur
-        const easedProgress = 1 - Math.pow(1 - blurProgress, 3);
-        const blurValue = easedProgress * 8; // Reduced max blur
-        parallax.style.filter = `blur(${blurValue}px)`;
-      } else {
-        parallax.style.filter = "blur(0px)";
-      }
-    }
-
-    ticking = false;
-  }
-
-  function requestTick() {
-    if (!ticking) {
-      requestAnimationFrame(updateParallax);
-      ticking = true;
-    }
-  }
+  // function requestTick() {
+  //   if (!ticking) {
+  //     requestAnimationFrame(updateParallax);
+  //     ticking = true;
+  //   }
+  // }
 
   // Use passive listener for better performance
-  window.addEventListener("scroll", requestTick, { passive: true });
+  // window.addEventListener("scroll", requestTick, { passive: true });
+
+  // // Pause background videos when offscreen to save CPU/GPU
+  // const bgVideos = Array.from(
+  //   document.querySelectorAll("video.background-video")
+  // );
+  // if (bgVideos.length > 0 && "IntersectionObserver" in window) {
+  //   const io = new IntersectionObserver(
+  //     (entries) => {
+  //       entries.forEach((entry) => {
+  //         const v = entry.target;
+  //         if (
+  //           prefersReducedMotion.matches ||
+  //           document.documentElement.classList.contains("reduced-motion")
+  //         ) {
+  //           try {
+  //             v.pause();
+  //           } catch (_) {}
+  //           return;
+  //         }
+  //         if (entry.isIntersecting) {
+  //           try {
+  //             v.play();
+  //           } catch (_) {}
+  //         } else {
+  //           try {
+  //             v.pause();
+  //           } catch (_) {}
+  //         }
+  //       });
+  //     },
+  //     { threshold: 0.1 }
+  //   );
+  //   bgVideos.forEach((v) => io.observe(v));
+  // }
 
   // Handle resize events to enable/disable effects based on screen size
-  window.addEventListener("resize", () => {
-    const isMobile = window.innerWidth <= 768;
-    const parallax = document.querySelector(".parallax-section");
+  // window.addEventListener("resize", () => {
+  //   const isMobile = window.innerWidth <= 768;
+  //   const parallax = document.querySelector(".parallax-section");
 
-    if (isMobile && parallax) {
-      parallax.style.filter = "blur(0px)";
-    }
-  });
+  //   if (isMobile && parallax) {
+  //     parallax.style.filter = "blur(0px)";
+  //   }
+  //   if (prefersReducedMotion.matches || lowPerfDetected) {
+  //     if (parallax) parallax.style.filter = "none";
+  //   }
+  // });
 
   // Hide social toolbar when contact content is visible
   function toggleSocialToolbar() {
@@ -2450,146 +2590,146 @@ https://cdn.jsdelivr.net/npm/typeface-poppins@1.1.13/index.min.css
   // Para aumentar a quantidade de progresso da animação pela altura que foi scrollada,
   // altere o denominador da variável 'progress' (atualmente: (sectionHeight * progressFactor)).
   // Quanto menor o valor de 'progressFactor', mais rápido a linha cresce; quanto maior, mais devagar.
-  const progressFactor = 1.0; // Altere este valor para controlar a velocidade do crescimento da linha
-  const mobileLineProgressFactor = 0.75; // Altere este valor para controlar a velocidade da linha no mobile
+  // const progressFactor = 1.0; // Altere este valor para controlar a velocidade do crescimento da linha
+  // const mobileLineProgressFactor = 0.75; // Altere este valor para controlar a velocidade da linha no mobile
 
-  const timelineLine = document.querySelector(".timeline-line");
-  const timelineItems = document.querySelectorAll(".timeline-item");
-  const myJourneySectionElement = document.querySelector(".journey-timeline");
-  const journeyTimelineElement = document.querySelector(".journey-timeline");
+  // const timelineLine = document.querySelector(".timeline-line");
+  // const timelineItems = document.querySelectorAll(".timeline-item");
+  // const myJourneySectionElement = document.querySelector(".journey-timeline");
+  // const journeyTimelineElement = document.querySelector(".journey-timeline");
 
-  // Controle para animação mobile
-  let mobileItemsAnimated = false;
+  // // Controle para animação mobile
+  // let mobileItemsAnimated = false;
 
-  function animateTimeline() {
-    const isMobile = window.innerWidth <= 768;
+  // function animateTimeline() {
+  //   const isMobile = window.innerWidth <= 768;
 
-    if (isMobile) {
-      animateTimelineMobile();
-    } else {
-      animateTimelineDesktop();
-    }
-  }
+  //   if (isMobile) {
+  //     animateTimelineMobile();
+  //   } else {
+  //     animateTimelineDesktop();
+  //   }
+  // }
 
-  function animateTimelineDesktop() {
-    const sectionRect = myJourneySectionElement.getBoundingClientRect();
-    const windowHeight = window.innerHeight;
+  // function animateTimelineDesktop() {
+  //   const sectionRect = myJourneySectionElement.getBoundingClientRect();
+  //   const windowHeight = window.innerHeight;
 
-    // Calcula o progresso do scroll na seção (0 = topo da seção na base da viewport, 1 = base da seção no topo da viewport)
-    const sectionTop = sectionRect.top;
-    const sectionHeight = sectionRect.height;
-    const sectionBottom = sectionRect.bottom;
+  //   // Calcula o progresso do scroll na seção (0 = topo da seção na base da viewport, 1 = base da seção no topo da viewport)
+  //   const sectionTop = sectionRect.top;
+  //   const sectionHeight = sectionRect.height;
+  //   const sectionBottom = sectionRect.bottom;
 
-    // O progresso é 0 quando a seção começa a aparecer, 1 quando termina de sair da viewport
-    let progress = 0;
-    if (sectionBottom > 0 && sectionTop < windowHeight) {
-      // O progresso é baseado na fração da seção que já passou pela viewport
-      // progressFactor controla o quanto da altura da seção é necessário para a linha chegar a 100%
-      progress = Math.max(
-        0,
-        Math.min(
-          1,
-          (windowHeight - sectionTop) / (sectionHeight * progressFactor)
-        )
-      );
-    }
+  //   // O progresso é 0 quando a seção começa a aparecer, 1 quando termina de sair da viewport
+  //   let progress = 0;
+  //   if (sectionBottom > 0 && sectionTop < windowHeight) {
+  //     // O progresso é baseado na fração da seção que já passou pela viewport
+  //     // progressFactor controla o quanto da altura da seção é necessário para a linha chegar a 100%
+  //     progress = Math.max(
+  //       0,
+  //       Math.min(
+  //         1,
+  //         (windowHeight - sectionTop) / (sectionHeight * progressFactor)
+  //       )
+  //     );
+  //   }
 
-    // Animar a linha: height proporcional ao progresso do scroll na seção
-    if (progress > 0 && progress <= 1) {
-      timelineLine.classList.add("animated");
-      timelineLine.style.height = `${progress * 100}%`;
-    } else if (progress > 1) {
-      timelineLine.classList.add("animated");
-      timelineLine.style.height = `100%`;
-    } else {
-      timelineLine.classList.remove("animated");
-      timelineLine.style.height = `0%`;
-    }
+  //   // Animar a linha: height proporcional ao progresso do scroll na seção
+  //   if (progress > 0 && progress <= 1) {
+  //     timelineLine.classList.add("animated");
+  //     timelineLine.style.height = `${progress * 100}%`;
+  //   } else if (progress > 1) {
+  //     timelineLine.classList.add("animated");
+  //     timelineLine.style.height = `100%`;
+  //   } else {
+  //     timelineLine.classList.remove("animated");
+  //     timelineLine.style.height = `0%`;
+  //   }
 
-    // Animar os items conforme a linha chega neles
-    timelineItems.forEach((item) => {
-      const itemRect = item.getBoundingClientRect();
-      // O item é considerado visível quando seu topo está dentro da viewport
-      if (itemRect.top < windowHeight * 0.85) {
-        item.classList.add("visible");
-      } else {
-        item.classList.remove("visible");
-      }
-    });
-  }
+  //   // Animar os items conforme a linha chega neles
+  //   timelineItems.forEach((item) => {
+  //     const itemRect = item.getBoundingClientRect();
+  //     // O item é considerado visível quando seu topo está dentro da viewport
+  //     if (itemRect.top < windowHeight * 0.85) {
+  //       item.classList.add("visible");
+  //     } else {
+  //       item.classList.remove("visible");
+  //     }
+  //   });
+  // }
 
-  function animateTimelineMobile() {
-    const windowHeight = window.innerHeight;
-    const timelineRect = journeyTimelineElement.getBoundingClientRect();
+  // function animateTimelineMobile() {
+  //   const windowHeight = window.innerHeight;
+  //   const timelineRect = journeyTimelineElement.getBoundingClientRect();
 
-    // Animar a linha gradualmente no mobile
-    const timelineTop = timelineRect.top;
-    const timelineHeight = timelineRect.height;
-    const timelineBottom = timelineRect.bottom;
+  //   // Animar a linha gradualmente no mobile
+  //   const timelineTop = timelineRect.top;
+  //   const timelineHeight = timelineRect.height;
+  //   const timelineBottom = timelineRect.bottom;
 
-    // Calcular progresso da timeline na viewport
-    let lineProgress = 0;
-    if (timelineBottom > 0 && timelineTop < windowHeight) {
-      lineProgress = Math.max(
-        0,
-        Math.min(
-          1,
-          (windowHeight - timelineTop) /
-            ((windowHeight + timelineHeight) * mobileLineProgressFactor)
-        )
-      );
-    }
+  //   // Calcular progresso da timeline na viewport
+  //   let lineProgress = 0;
+  //   if (timelineBottom > 0 && timelineTop < windowHeight) {
+  //     lineProgress = Math.max(
+  //       0,
+  //       Math.min(
+  //         1,
+  //         (windowHeight - timelineTop) /
+  //           ((windowHeight + timelineHeight) * mobileLineProgressFactor)
+  //       )
+  //     );
+  //   }
 
-    // Aplicar altura gradual baseada no progresso
-    if (lineProgress > 0) {
-      timelineLine.classList.add("animated");
-      timelineLine.style.height = `${lineProgress * 100}%`;
-    } else {
-      timelineLine.classList.remove("animated");
-      timelineLine.style.height = "0%";
-    }
+  //   // Aplicar altura gradual baseada no progresso
+  //   if (lineProgress > 0) {
+  //     timelineLine.classList.add("animated");
+  //     timelineLine.style.height = `${lineProgress * 100}%`;
+  //   } else {
+  //     timelineLine.classList.remove("animated");
+  //     timelineLine.style.height = "0%";
+  //   }
 
-    // Animar apenas os cards no mobile baseado na altura do dispositivo
-    timelineItems.forEach((item, index) => {
-      const itemRect = item.getBoundingClientRect();
-      const deviceHeight = window.innerHeight;
+  //   // Animar apenas os cards no mobile baseado na altura do dispositivo
+  //   timelineItems.forEach((item, index) => {
+  //     const itemRect = item.getBoundingClientRect();
+  //     const deviceHeight = window.innerHeight;
 
-      // Card aparece quando chega na parte superior da tela
-      // Usar 80% da altura do dispositivo como threshold
-      const threshold = deviceHeight * 0.8;
+  //     // Card aparece quando chega na parte superior da tela
+  //     // Usar 80% da altura do dispositivo como threshold
+  //     const threshold = deviceHeight * 0.8;
 
-      if (itemRect.top < threshold) {
-        item.classList.add("visible");
-      } else {
-        item.classList.remove("visible");
-      }
-    });
-  }
+  //     if (itemRect.top < threshold) {
+  //       item.classList.add("visible");
+  //     } else {
+  //       item.classList.remove("visible");
+  //     }
+  //   });
+  // }
 
-  // Adicionar listener de scroll para animações da timeline
-  window.addEventListener("scroll", animateTimeline, { passive: true });
+  // // Adicionar listener de scroll para animações da timeline
+  // window.addEventListener("scroll", animateTimeline, { passive: true });
 
-  // Executar uma vez no carregamento para verificar se já está visível
-  animateTimeline();
+  // // Executar uma vez no carregamento para verificar se já está visível
+  // animateTimeline();
 
   // Fallback para mobile: garantir que elementos sejam visíveis após um delay
-  setTimeout(() => {
-    const isMobile = window.innerWidth <= 768;
-    if (isMobile) {
-      // Garantir que a linha seja visível
-      if (timelineLine && !timelineLine.classList.contains("animated")) {
-        timelineLine.classList.add("animated");
-        timelineLine.style.height = "100%";
-      }
+  // setTimeout(() => {
+  //   const isMobile = window.innerWidth <= 768;
+  //   if (isMobile) {
+  //     // Garantir que a linha seja visível
+  //     if (timelineLine && !timelineLine.classList.contains("animated")) {
+  //       timelineLine.classList.add("animated");
+  //       timelineLine.style.height = "100%";
+  //     }
 
-      // Garantir que todos os items sejam visíveis
-      timelineItems.forEach((item) => {
-        if (!item.classList.contains("visible")) {
-          item.classList.add("visible");
-        }
-      });
-    }
-  }, 3000);
+  //     // Garantir que todos os items sejam visíveis
+  //     timelineItems.forEach((item) => {
+  //       if (!item.classList.contains("visible")) {
+  //         item.classList.add("visible");
+  //       }
+  //     });
+  //   }
+  // }, 3000);
 
   // Permitir que o blob siga o mouse mesmo quando parado e também ao usar o scroll
   let blobAnimationFrame = null;

@@ -39,7 +39,13 @@ function getTechIcon(tech: string): string {
   <div class="project-content-card">
     <h3 class="project-title">{title}</h3>
     <div class="project-image-mobile">
-      <img src={image} alt={imageAlt} class="project-img-mobile" />
+      <img
+        src={image}
+        alt={imageAlt}
+        class="project-img-mobile"
+        loading="lazy"
+        decoding="async"
+      />
     </div>
     <div class="project-description-mobile">
       <p class="project-description">
@@ -65,7 +71,13 @@ function getTechIcon(tech: string): string {
     </a>
   </div>
   <div class="project-image-card">
-    <img src={image} alt={imageAlt} class="project-img" />
+    <img
+      src={image}
+      alt={imageAlt}
+      class="project-img"
+      loading="lazy"
+      decoding="async"
+    />
   </div>
 </div>
 
@@ -273,5 +285,27 @@ function getTechIcon(tech: string): string {
         }
       }
     }
+  }
+
+  /* Keep subtle hover transitions in low-perf and reduced-motion modes */
+  @media (prefers-reduced-motion: reduce) {
+    .project-content-card,
+    .project-link,
+    .project-image-card .project-img {
+      transition:
+        transform 150ms ease,
+        box-shadow 150ms ease,
+        background-color 150ms ease,
+        border-color 150ms ease !important;
+    }
+  }
+  :root.low-perf .project-content-card,
+  :root.low-perf .project-link,
+  :root.low-perf .project-image-card .project-img {
+    transition:
+      transform 150ms ease,
+      box-shadow 150ms ease,
+      background-color 150ms ease,
+      border-color 150ms ease !important;
   }
 </style>
