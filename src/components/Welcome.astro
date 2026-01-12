@@ -8,10 +8,6 @@ import etpcEsports from "../assets/img/etpc_esports.webp";
 import ProjectCard from "./ProjectCard.astro";
 import JourneyCard from "./JourneyCard.astro";
 
-import { init } from "@plausible-analytics/tracker";
-init({
-  domain: "guelbandeira.com",
-});
 // import { icon } from "@fortawesome/fontawesome-svg-core";
 // import {
 //   faTelegram,
@@ -30,6 +26,25 @@ init({
 
 // const emailIcon = icon(faEnvelope).html;
 ---
+
+<!-- Privacy-friendly analytics by Plausible -->
+<script
+  async
+  src="https://plausible.guelbandeira.com/js/pa-HGh-l44zcVLM8bwOrp7eM.js"
+></script>
+<script is:inline>
+  ((window.plausible =
+    window.plausible ||
+    function () {
+      (plausible.q = plausible.q || []).push(arguments);
+    }),
+    (plausible.init =
+      plausible.init ||
+      function (i) {
+        plausible.o = i || {};
+      }));
+  plausible.init();
+</script>
 
 <div class="social-toolbar">
   <ul class="social-icons">
@@ -2436,6 +2451,14 @@ init({
     animation: none !important;
   }
 </style>
+
+<script>
+  // Initialize Plausible Analytics
+  import { init } from "@plausible-analytics/tracker";
+  init({
+    domain: "guelbandeira.com",
+  });
+</script>
 
 <script is:inline>
   // Smooth parallax effect with requestAnimationFrame
