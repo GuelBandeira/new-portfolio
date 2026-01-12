@@ -9,7 +9,9 @@ import ProjectCard from "./ProjectCard.astro";
 import JourneyCard from "./JourneyCard.astro";
 
 import { init } from "@plausible-analytics/tracker";
-
+init({
+  domain: "guelbandeira.com",
+});
 // import { icon } from "@fortawesome/fontawesome-svg-core";
 // import {
 //   faTelegram,
@@ -2436,9 +2438,6 @@ import { init } from "@plausible-analytics/tracker";
 </style>
 
 <script is:inline>
-  init({
-    domain: "guelbandeira.com",
-  });
   // Smooth parallax effect with requestAnimationFrame
 
   document.documentElement.classList.add("low-perf");
