@@ -7,6 +7,9 @@ import lccAmbiental from "../assets/img/lcc_ambiental.webp";
 import etpcEsports from "../assets/img/etpc_esports.webp";
 import ProjectCard from "./ProjectCard.astro";
 import JourneyCard from "./JourneyCard.astro";
+
+import { init } from "@plausible-analytics/tracker";
+
 // import { icon } from "@fortawesome/fontawesome-svg-core";
 // import {
 //   faTelegram,
@@ -147,8 +150,11 @@ import JourneyCard from "./JourneyCard.astro";
         <button class="btn btn-primary" onclick="scrollToSection('contact')"
           >Contact Me</button
         >
-        <button class="btn btn-secondary" onclick="scrollToSection('projects')"
-          >View Projects</button
+        <a
+          href="https://blog.guelbandeira.com"
+          class="btn btn-secondary"
+          target="_blank"
+          rel="noopener noreferrer">View Blog <i class="fas fa-share"></i></a
         >
       </div>
     </div>
@@ -393,52 +399,42 @@ import JourneyCard from "./JourneyCard.astro";
                 <i class="fab fa-github"></i>
               </a>
             </div>
-            <div class="orbit-icon" style="--angle: 60deg; --height: 15px;">
+            <div class="orbit-icon" style="--angle: 72deg; --height: 15px;">
               <a
                 href="https://t.me/guelbandeira"
                 target="_blank"
                 rel="noopener noreferrer"
                 class="social-orbit-link telegram"
               >
-                <i class="fab fa-telegram" style="rotate: 315deg;"></i>
+                <i class="fab fa-telegram" style="rotate: 288deg;"></i>
               </a>
             </div>
-            <div class="orbit-icon" style="--angle: 120deg; --height: -10px;">
+            <div class="orbit-icon" style="--angle: 144deg; --height: -10px;">
               <a
                 href="https://www.linkedin.com/in/guel-bandeira/"
                 target="_blank"
                 rel="noopener noreferrer"
                 class="social-orbit-link linkedin"
               >
-                <i class="fab fa-linkedin" style="rotate: 240deg;"></i>
+                <i class="fab fa-linkedin" style="rotate: 216deg;"></i>
               </a>
             </div>
-            <div class="orbit-icon" style="--angle: 180deg; --height: 20px;">
+            <div class="orbit-icon" style="--angle: 216deg; --height: 20px;">
               <a
                 href="mailto:bandeiraguel@gmail.com"
                 class="social-orbit-link email"
               >
-                <i class="fas fa-envelope" style="rotate: 180deg;"></i>
+                <i class="fas fa-envelope" style="rotate: 144deg;"></i>
               </a>
             </div>
-            <div class="orbit-icon" style="--angle: 240deg; --height: -5px;">
+            <div class="orbit-icon" style="--angle: 288deg; --height: -5px;">
               <a
                 href="https://wa.me/+5524999987722"
                 target="_blank"
                 rel="noopener noreferrer"
                 class="social-orbit-link whatsapp"
               >
-                <i class="fab fa-whatsapp" style="rotate: 470deg;"></i>
-              </a>
-            </div>
-            <div class="orbit-icon" style="--angle: 300deg; --height: 10px;">
-              <a
-                href="https://www.youtube.com/@SoloSyntax"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="social-orbit-link youtube"
-              >
-                <i class="fab fa-youtube" style="rotate: 60deg;"></i>
+                <i class="fab fa-whatsapp" style="rotate: 432deg;"></i>
               </a>
             </div>
           </div>
@@ -493,15 +489,6 @@ import JourneyCard from "./JourneyCard.astro";
         >
           <i class="fab fa-whatsapp"></i>
           <span>WhatsApp</span>
-        </a>
-        <a
-          href="https://www.youtube.com/@SoloSyntax"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="social-link"
-        >
-          <i class="fab fa-youtube"></i>
-          <span>YouTube</span>
         </a>
       </div>
     </div>
@@ -2337,22 +2324,6 @@ import JourneyCard from "./JourneyCard.astro";
                   }
                 }
               }
-
-              // YouTube
-              &.youtube {
-                background: rgba(255, 0, 0, 0.2);
-                border-color: rgba(255, 0, 0, 0.3);
-                i {
-                  color: #ff0000;
-                }
-                &:hover {
-                  background: rgba(255, 0, 0, 0.3);
-                  border-color: rgba(255, 0, 0, 0.5);
-                  i {
-                    color: #ff4444;
-                  }
-                }
-              }
             }
           }
         }
@@ -2389,20 +2360,20 @@ import JourneyCard from "./JourneyCard.astro";
       }
 
       .contact-social {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
         gap: 1rem;
         margin-top: 2rem;
         width: 100%;
         max-width: 500px;
 
         @media (max-width: 768px) {
-          grid-template-columns: repeat(2, 1fr);
           gap: 0.75rem;
         }
 
         @media (max-width: 480px) {
-          grid-template-columns: -1fr;
+          gap: 0.5rem;
         }
 
         .social-link {
@@ -2465,6 +2436,9 @@ import JourneyCard from "./JourneyCard.astro";
 </style>
 
 <script is:inline>
+  init({
+    domain: "guelbandeira.com",
+  });
   // Smooth parallax effect with requestAnimationFrame
 
   document.documentElement.classList.add("low-perf");
