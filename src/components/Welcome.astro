@@ -1,5 +1,5 @@
 ---
-import profileImage from "../assets/proifle.jpg";
+import profileImage from "../assets/profile_image.jpg";
 import profileImagePixelArt from "../assets/img/me_edited.png";
 import alreadyWatched from "../assets/img/already_watched.webp";
 import myNftCar from "../assets/img/my_nft_car.webp";
@@ -7,6 +7,7 @@ import lccAmbiental from "../assets/img/lcc_ambiental.webp";
 import etpcEsports from "../assets/img/etpc_esports.webp";
 import ProjectCard from "./ProjectCard.astro";
 import JourneyCard from "./JourneyCard.astro";
+import AnimatedCursor from "react-animated-cursor";
 
 // import { icon } from "@fortawesome/fontawesome-svg-core";
 // import {
@@ -27,7 +28,14 @@ import JourneyCard from "./JourneyCard.astro";
 // const emailIcon = icon(faEnvelope).html;
 ---
 
-<!-- Privacy-friendly analytics by Plausible -->
+<!-- <AnimatedCursor
+  innerSize={8}
+  outerSize={30}
+  color="255, 255, 255"
+  outerAlpha={0.2}
+  innerScale={2}
+  outerScale={2}
+/> --><!-- Privacy-friendly analytics by Plausible -->
 <script
   async
   src="https://plausible.guelbandeira.com/js/pa-HGh-l44zcVLM8bwOrp7eM.js"
@@ -114,7 +122,12 @@ import JourneyCard from "./JourneyCard.astro";
     <div class="hero-text">
       <h1 class="hero-title">
         <span class="hero-greeting handwritten">Hello I am</span>
-        Guel Bandeira
+        <span class="hero-name-inline">
+          <span class="g-logo-inline">
+            <img src={`${import.meta.env.BASE_URL}logo.webp`} alt="G logo" />
+          </span>
+          <span class="g-logo-text">uel Bandeira</span>
+        </span>
       </h1>
       <p class="hero-description">
         A passionate Full Stack Developer with over 4 years of experience in
@@ -177,21 +190,21 @@ import JourneyCard from "./JourneyCard.astro";
     </div>
 
     <div class="hero-image">
-      <!-- <ul class="ag-glitch_list profile-photo-pixel-art">
+      <ul class="ag-glitch_list profile-photo-pixel-art">
         <li class="ag-glitch_item"></li>
         <li class="ag-glitch_item"></li>
         <li class="ag-glitch_item"></li>
         <li class="ag-glitch_item"></li>
         <li class="ag-glitch_item"></li>
-      </ul> -->
-
+      </ul>
+      <!-- 
       <img
         src={profileImage.src}
         alt="Profile Photo"
         class="profile-photo"
         loading="lazy"
         decoding="async"
-      />
+      /> -->
 
       <!-- Circular Technology Lines -->
       <!-- <div class="tech-orbit">
@@ -326,7 +339,7 @@ import JourneyCard from "./JourneyCard.astro";
 ;
     text-align: center;
     height: 10px;
-    margin-right: 270px;
+    <!-- margin-right: 270px; -->
     justify-content: center;"
       ></span>
       <p class="section-subtitle"></p>
@@ -459,7 +472,15 @@ import JourneyCard from "./JourneyCard.astro";
 
         <div class="contact-info">
           <div class="contact-name">
-            <h3>Guel Bandeira</h3>
+            <h3>
+              <span class="g-logo-inline">
+                <img
+                  src={`${import.meta.env.BASE_URL}logo.webp`}
+                  alt="G logo"
+                />
+              </span>
+              <span class="g-logo-text">uel Bandeira</span>
+            </h3>
             <i class="fas fa-check-circle verified-badge"></i>
           </div>
           <p class="contact-role">bandeiraguel@gmail.com</p>
@@ -547,19 +568,56 @@ import JourneyCard from "./JourneyCard.astro";
     border-radius: 20px;
   }
 
+  .ag-glitch_list {
+    position: relative;
+    width: 100%;
+    max-width: 100%;
+    height: 100%;
+    min-height: 400px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    @media (max-width: 768px) {
+      min-height: 300px;
+    }
+
+    @media (max-width: 480px) {
+      min-height: 250px;
+    }
+  }
+
   .ag-glitch_item {
     background-color: transparent;
     background-blend-mode: normal;
-    background: url("../assets/img/me_edited.png") no-repeat center;
+    background: url("../assets/img/new_me.png") no-repeat center;
+    background-size: contain;
 
     position: absolute;
-    top: 15%;
-    left: 55%;
-    right: 15%;
-    bottom: 15%;
-
+    inset: 0;
+    width: 450px;
+    height: 450px;
+    margin: auto;
     -webkit-transform: translate3d(0, 0, 0);
     transform: translate3d(0, 0, 0);
+
+    @media (max-width: 1024px) {
+      width: 350px;
+      height: 350px;
+    }
+
+    @media (max-width: 768px) {
+      width: 300px;
+      height: 300px;
+    }
+
+    @media (max-width: 480px) {
+      width: 250px;
+      height: 250px;
+    }
   }
   .ag-glitch_item:nth-child(n + 2) {
     opacity: 0;
@@ -1283,6 +1341,29 @@ import JourneyCard from "./JourneyCard.astro";
         @media (max-width: 768px) {
           text-align: center;
         }
+
+        .hero-name-inline {
+          display: inline-flex;
+          align-items: center;
+          gap: 0.06em;
+        }
+
+        .g-logo-inline {
+          display: inline-flex;
+          width: 1em;
+          height: 1em;
+          margin-right: -0.06em;
+          margin-bottom: 7px;
+          img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+          }
+        }
+
+        .g-logo-text {
+          display: inline-block;
+        }
       }
 
       .hero-description {
@@ -1350,18 +1431,26 @@ import JourneyCard from "./JourneyCard.astro";
     .hero-image {
       @include flex-center;
       position: relative;
+      width: 100%;
+      height: 100%;
+      min-height: 400px;
 
       @media (max-width: 768px) {
         order: 1;
+        min-height: 300px;
+      }
+
+      @media (max-width: 480px) {
+        min-height: 250px;
       }
 
       .profile-photo {
-        width: 300px;
-        height: 300px;
+        width: 450px;
+        height: 450px;
         border-radius: 50%;
         object-fit: cover;
-        border: 4px solid $primary-color;
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        // border: 4px solid $primary-color;
+        // box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
         transition: all 0.3s ease;
         position: relative;
         z-index: 2;
@@ -1376,37 +1465,17 @@ import JourneyCard from "./JourneyCard.astro";
           height: 200px;
         }
 
-        &:hover {
-          transform: scale(1.05);
-          box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
-        }
+        // &:hover {
+        //   transform: scale(1.05);
+        //   box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+        // }
       }
 
       .profile-photo-pixel-art {
         width: 100%;
         height: 100%;
-        border-radius: 50%;
-        object-fit: cover;
-        border: 4px solid $primary-color;
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-        transition: all 0.3s ease;
         position: relative;
         z-index: 2;
-
-        @media (max-width: 768px) {
-          width: 250px;
-          height: 250px;
-        }
-
-        @media (max-width: 480px) {
-          width: 200px;
-          height: 200px;
-        }
-
-        &:hover {
-          transform: scale(1.05);
-          box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
-        }
       }
 
       // Technology Orbit
@@ -2016,6 +2085,8 @@ import JourneyCard from "./JourneyCard.astro";
     }
   }
 
+  // (removed) g-logo-spin
+
   .hero-text {
     animation: fadeInUp 0.8s ease-out;
   }
@@ -2358,6 +2429,27 @@ import JourneyCard from "./JourneyCard.astro";
               font-weight: 700;
               color: $white;
               margin: 0;
+              display: flex;
+              align-items: center;
+              gap: 0.06em;
+
+              .g-logo-inline {
+                display: inline-flex;
+                width: 1em;
+                height: 1em;
+                margin-bottom: 3px;
+                margin-right: -0.06em;
+
+                img {
+                  width: 100%;
+                  height: 100%;
+                  object-fit: contain;
+                }
+              }
+
+              .g-logo-text {
+                display: inline-block;
+              }
             }
 
             .verified-badge {
